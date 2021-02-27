@@ -73,7 +73,15 @@ CREATE TABLE IF NOT EXISTS `formation` (
 --
 
 CREATE TABLE IF NOT EXISTS `reclamation` (
-  `login` int(20) NOT NULL
+  `id_rec` int(11) NOT NULL,
+  `login` int(11) NOT NULL,
+  `nom` varchar(15) NOT NULL,
+  `prenom` varchar(15) NOT NULL,
+  `titre_rec` varchar(20) NOT NULL,
+  `rec` varchar(500) NOT NULL,
+  `rep_rec` varchar(500) NOT NULL,
+  `date_rec` date NOT NULL,
+  PRIMARY KEY (`id_rec`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -84,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `reclamation` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `login` int(20) NOT NULL,
-  `password` varchar(15) NOT NULL,
+  `pwd` varchar(15) NOT NULL,
   `nom` varchar(15) NOT NULL,
   `prenom` varchar(15) NOT NULL,
   `dateNaissance` date NOT NULL,
