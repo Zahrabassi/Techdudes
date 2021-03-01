@@ -87,24 +87,6 @@ CREATE TABLE IF NOT EXISTS `reclamation` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
---
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `login` int(20) NOT NULL,
-  `pwd` varchar(15) NOT NULL,
-  `nom` varchar(15) NOT NULL,
-  `prenom` varchar(15) NOT NULL,
-  `dateNaissance` date NOT NULL,
-  `pays` varchar(20) NOT NULL,
-  `occupation` varchar(20) NOT NULL,
-  `sexe` varchar(5) NOT NULL,
-  PRIMARY KEY (`login`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `vente`
 --
 
@@ -114,6 +96,83 @@ CREATE TABLE IF NOT EXISTS `vente` (
   `prix` int(50) NOT NULL,
   `methode_paiment` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+CREATE TABLE `admin` (
+  `ID_admin` varchar(20) NOT NULL,
+  `NOM_admin` varchar(30) NOT NULL,
+  `EMAIL_admin` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `logins`
+--
+
+CREATE TABLE `logins` (
+  `login` varchar(20) NOT NULL,
+  `pwd` varchar(30) NOT NULL,
+  `occupation` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etudiant`
+--
+
+CREATE TABLE `etudiant` (
+  `ID_etudiant` varchar(20) NOT NULL,
+  `NOM_etudiant` varchar(30) NOT NULL,
+  `EMAIL_etudiant` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `enseignant`
+--
+
+CREATE TABLE `enseignant` (
+  `ID_enseignant` varchar(20) NOT NULL,
+  `NOM_enseignant` varchar(30) NOT NULL,
+  `EMAIL_enseignant` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+--
+-- Index pour la table `logins`
+--
+ALTER TABLE `logins`
+  ADD PRIMARY KEY (`login`);
+
+--
+-- Contraintes pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`ID_admin`) REFERENCES `logins` (`login`);
+
+--
+-- Contraintes pour la table `etudiant`
+--
+ALTER TABLE `etudiant`
+  ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`ID_etudiant`) REFERENCES `logins` (`login`);
+
+--
+-- Contraintes pour la table `enseignant`
+--
+ALTER TABLE `enseignant`
+  ADD CONSTRAINT `enseignant_ibfk_1` FOREIGN KEY (`ID_enseignant`) REFERENCES `logins` (`login`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
