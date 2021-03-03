@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root id="AnchorPane" prefHeight="538.0" prefWidth="757.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="courcour.mainController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="149.0" prefWidth="818.0" style="-fx-background-color: #2D75E8;" />
+      <VBox layoutX="11.0" layoutY="176.0" prefHeight="249.0" prefWidth="94.0" spacing="35.0">
+         <children>
+            <Label text="IdC" />
+            <Label text="nomC" />
+            <Label text="idEnseignant" />
+            <Label text="description" />
+         </children>
+      </VBox>
+      <VBox layoutX="106.0" layoutY="176.0" prefHeight="234.0" prefWidth="218.0" spacing="25.0">
+         <children>
+            <TextField fx:id="tfId" />
+            <TextField fx:id="tfNomCour" />
+            <TextField fx:id="tfIdEnseignant" />
+            <TextField fx:id="tfDescription" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvCour" layoutX="341.0" layoutY="176.0" prefHeight="335.0" prefWidth="456.0">
+         <columns>
+            <TableColumn fx:id="colIdC" prefWidth="52.800018310546875" text="IdC" />
+            <TableColumn fx:id="colNomCour" prefWidth="107.99993896484375" text="nomC" />
+            <TableColumn fx:id="colIdEnseignant" prefWidth="107.99993896484375" text="IdEnseignant" />
+            <TableColumn fx:id="colDescription" minWidth="0.0" prefWidth="183.2000732421875" text="description" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnajout" layoutX="15.0" layoutY="437.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="AJOUTER" />
+      <Button fx:id="btnmodif" layoutX="122.0" layoutY="437.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="MODIFIER" />
+      <Button fx:id="btnsuppr" layoutX="222.0" layoutY="437.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="SUPPRIMER" />
+    </children>
+</fx:root>
