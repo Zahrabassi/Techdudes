@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="472.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="courcour.HelloHelloController">
+   <children>
+      <Pane layoutX="-8.0" layoutY="-6.0" prefHeight="149.0" prefWidth="818.0" style="-fx-background-color: #2D75E8;" />
+      <Pane fx:id="COUR" accessibleRole="BUTTON" layoutX="45.0" layoutY="236.0" onMouseClicked="#handleButtonAction" prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #D7534E; -fx-background-radius: 1em;">
+         <children>
+            <Hyperlink layoutX="71.0" layoutY="40.0" onAction="#goToCour" text="COUR" />
+         </children>
+      </Pane>
+      <Pane layoutX="303.0" layoutY="236.0" onMouseClicked="#handleButtonAction" prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #EEAC4C; -fx-background-radius: 1em;">
+         <children>
+            <Label layoutX="59.0" layoutY="25.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="71.0" layoutY="40.0" onAction="#goToDevoir" text="DEVOIR" />
+         </children>
+      </Pane>
+      <Pane layoutX="564.0" layoutY="236.0" onMouseClicked="#handleButtonAction" prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #5CB55B; -fx-background-radius: 1em;">
+         <children>
+            <Hyperlink layoutX="71.0" layoutY="40.0" onAction="#goToMeet" text="MEET" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="437.0" prefWidth="807.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+   <children>
+      <Pane layoutX="-11.0" layoutY="-8.0" prefHeight="149.0" prefWidth="818.0" style="-fx-background-color: #2D75E8;" />
+      <ComboBox fx:id="colDes" layoutX="128.0" layoutY="267.0" prefHeight="26.0" prefWidth="174.0" />
+      <DatePicker fx:id="colDateL" layoutX="128.0" layoutY="321.0" />
+      <TextField fx:id="tfNomD" layoutX="128.0" layoutY="215.0" prefHeight="26.0" prefWidth="174.0" />
+      <TextField fx:id="tfIdD" layoutX="128.0" layoutY="168.0" prefHeight="26.0" prefWidth="174.0" />
+      <VBox layoutX="14.0" layoutY="168.0" prefHeight="249.0" prefWidth="94.0" spacing="35.0">
+         <children>
+            <Label text="idD" />
+            <Label text="nomD" />
+            <Label text="description" />
+            <Label text="dateLim" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvDev" layoutX="418.0" layoutY="179.0" prefHeight="226.0" prefWidth="355.0">
+        <columns>
+          <TableColumn fx:id="colIdD" prefWidth="52.7999267578125" text="idD" />
+          <TableColumn fx:id="colNomD" prefWidth="108.00009155273438" text="nomD" />
+            <TableColumn fx:id="colDD" prefWidth="96.79998779296875" text="description" />
+            <TableColumn fx:id="colDateL" prefWidth="98.4000244140625" text="dateLim" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
