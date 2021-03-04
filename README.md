@@ -8,11 +8,11 @@ Gluon JavaFX Scene Builder 8.5.0
 ********************************************
 Langages utilisées:
 
-Java (for coding the backend of the software)
+Java (pour coder le backend du logiciel)
 
-FXML (for coding the frontend)
+FXML (pour coder le frontend)
 
-SQL (for querying from the database)
+SQL (pour interroger avec la base de données)
 ********************************************
 Dépendances Java utilisées:
 
