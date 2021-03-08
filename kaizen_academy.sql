@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 04 mars 2021 à 07:51
+-- Généré le : lun. 08 mars 2021 à 16:19
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -20,29 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `kaizen_academy`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `chairman`
---
-
-CREATE TABLE `chairman` (
-  `Chairman_ID` varchar(20) NOT NULL,
-  `Chairman_Name` varchar(30) NOT NULL,
-  `Chairman_Email` varchar(30) DEFAULT NULL,
-  `Chairman_Blood_Group` varchar(10) DEFAULT NULL,
-  `Chairman_Contact_Number` varchar(20) DEFAULT NULL,
-  `Chairman_Address` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `chairman`
---
-
-INSERT INTO `chairman` (`Chairman_ID`, `Chairman_Name`, `Chairman_Email`, `Chairman_Blood_Group`, `Chairman_Contact_Number`, `Chairman_Address`) VALUES
-('iheb', 'iheb', 'iheb', '', '', ''),
-('SM', 'Shahriar Manzoor', 'smanzoor@gmail.com', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -179,6 +156,8 @@ INSERT INTO `formation` (`id_f`, `intitule`, `description`, `date_debut`, `id_ev
 CREATE TABLE `logins` (
   `USERNAME` varchar(20) NOT NULL,
   `PASSWORD` varchar(30) NOT NULL,
+  `Name` varchar(20) NOT NULL,
+  `Email` varchar(50) NOT NULL,
   `USERTYPE` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -186,14 +165,8 @@ CREATE TABLE `logins` (
 -- Déchargement des données de la table `logins`
 --
 
-INSERT INTO `logins` (`USERNAME`, `PASSWORD`, `USERTYPE`) VALUES
-('123', '123', 'Student'),
-('AR', '123', 'Teacher'),
-('iheb', 'iheb', 'Chairman'),
-('KIA', '123', 'Teacher'),
-('KMH', '123', 'Teacher'),
-('RAJ', '123', 'Teacher'),
-('SM', '123', 'Chairman');
+INSERT INTO `logins` (`USERNAME`, `PASSWORD`, `Name`, `Email`, `USERTYPE`) VALUES
+('iheb', 'iheb', '', '', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -207,102 +180,15 @@ CREATE TABLE `meet` (
   `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `student`
---
-
-CREATE TABLE `student` (
-  `Student_ID` varchar(20) NOT NULL,
-  `Student_Name` varchar(30) NOT NULL,
-  `Student_Email` varchar(30) DEFAULT NULL,
-  `Student_Blood_Group` varchar(10) DEFAULT NULL,
-  `Student_Contact_Number` varchar(20) DEFAULT NULL,
-  `Student_Address` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `student`
---
-
-INSERT INTO `student` (`Student_ID`, `Student_Name`, `Student_Email`, `Student_Blood_Group`, `Student_Contact_Number`, `Student_Address`) VALUES
-('123', 'test', 'test@email.com', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `teacher`
---
-
-CREATE TABLE `teacher` (
-  `Teacher_ID` varchar(20) NOT NULL,
-  `Teacher_Name` varchar(30) NOT NULL,
-  `Teacher_Email` varchar(30) DEFAULT NULL,
-  `Teacher_Blood_Group` varchar(10) DEFAULT NULL,
-  `Teacher_Contact_Number` varchar(20) DEFAULT NULL,
-  `Teacher_Address` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `teacher`
---
-
-INSERT INTO `teacher` (`Teacher_ID`, `Teacher_Name`, `Teacher_Email`, `Teacher_Blood_Group`, `Teacher_Contact_Number`, `Teacher_Address`) VALUES
-('AR', 'Ashiqur Rahman', 'ashiq.seu@gmail.com', '', '', ''),
-('KIA', 'Kimia Aksir', 'kimia.aksir@gmail.com', '', '', ''),
-('KMH', 'Monirul Hasan', 'kmhasan@gmail.com', '', '', ''),
-('RAJ', 'Roksana Akhter Jolly', 'roksana.seu@gmail.com', '', '', '');
-
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `chairman`
---
-ALTER TABLE `chairman`
-  ADD PRIMARY KEY (`Chairman_ID`);
 
 --
 -- Index pour la table `logins`
 --
 ALTER TABLE `logins`
   ADD PRIMARY KEY (`USERNAME`);
-
---
--- Index pour la table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`Student_ID`);
-
---
--- Index pour la table `teacher`
---
-ALTER TABLE `teacher`
-  ADD PRIMARY KEY (`Teacher_ID`);
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `chairman`
---
-ALTER TABLE `chairman`
-  ADD CONSTRAINT `CHAIRMAN` FOREIGN KEY (`Chairman_ID`) REFERENCES `logins` (`USERNAME`);
-
---
--- Contraintes pour la table `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `STUDENT` FOREIGN KEY (`Student_ID`) REFERENCES `logins` (`USERNAME`);
-
---
--- Contraintes pour la table `teacher`
---
-ALTER TABLE `teacher`
-  ADD CONSTRAINT `TEACHER` FOREIGN KEY (`Teacher_ID`) REFERENCES `logins` (`USERNAME`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
