@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="GestionUtilisateur-v2.0.jnlp">
+  <information>
+    <title>GestionUtilisateur-v2.0</title>
+    <vendor>HP</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="GestionUtilisateur-v2.0.jar" size="22099" download="eager" />
+    <jar href="lib\activation.jar" size="124332" download="eager" />
+    <jar href="lib\dsn-1.6.2.jar" size="18388" download="eager" />
+    <jar href="lib\dsn.jar" size="18190" download="eager" />
+    <jar href="lib\gimap-1.6.2.jar" size="19841" download="eager" />
+    <jar href="lib\imap-1.6.2.jar" size="233478" download="eager" />
+    <jar href="lib\imap.jar" size="176186" download="eager" />
+    <jar href="lib\javax.mail-1.6.2.jar" size="659031" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\logging-mailhandler-1.6.2.jar" size="76948" download="eager" />
+    <jar href="lib\mail.jar" size="666983" download="eager" />
+    <jar href="lib\mailapi-1.6.2.jar" size="301467" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.23.jar" size="2415211" download="eager" />
+    <jar href="lib\pop3-1.6.2.jar" size="49360" download="eager" />
+    <jar href="lib\pop3.jar" size="42854" download="eager" />
+    <jar href="lib\smtp-1.4.4.jar" size="52195" download="eager" />
+    <jar href="lib\smtp-1.6.2.jar" size="64013" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GestionUtilisateur-v2.0" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="tn.kaizen.main.GestionUtilisateurV2"  name="GestionUtilisateur-v2.0" />
+  <update check="always"/>
+</jnlp>

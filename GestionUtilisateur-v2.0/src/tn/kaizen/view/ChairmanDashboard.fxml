@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.kaizen.controllers.ChairmanDashboardController">
+    <children>
+        <Rectangle fill="DODGERBLUE" height="87.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: #2D75E8;" width="800.0" />
+        <HBox alignment="CENTER_RIGHT" layoutY="89.0" prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #2D75E8;">
+            <children>
+                <GridPane prefHeight="46.0" prefWidth="659.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="106.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="378.0" minWidth="10.0" prefWidth="233.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.0" minWidth="10.0" prefWidth="142.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="183.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="20.0" prefWidth="81.0" text="Nom" textFill="#f4e8e8">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                        <Label fx:id="chairmanNameLabel" text="Nom" textFill="#f4e8e8" GridPane.columnIndex="1">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                        <Label prefHeight="20.0" prefWidth="113.0" text="Nom d'utlisateur" textFill="#f4e8e8" GridPane.columnIndex="2">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                        <Label fx:id="chairmanIdLabel" text="USERNAME" textFill="#f4e8e8" GridPane.columnIndex="3">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+        <Rectangle fill="#ffdb6f" height="4.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+      <Button layoutX="688.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleDashboardSignout" text="Déconnexion" />
+      <AnchorPane fx:id="AdminPane" layoutX="89.0" layoutY="155.0">
+         <children>
+            <TableView fx:id="user" layoutY="38.0" prefHeight="294.0" prefWidth="595.0">
+              <columns>
+                <TableColumn fx:id="username" prefWidth="207.0" text="Nom d'utlisateur" />
+                <TableColumn fx:id="name" minWidth="0.0" prefWidth="192.0" text="Nom" />
+                  <TableColumn fx:id="email" prefWidth="195.0" text="Email" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnDelete" layoutX="262.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Supprimer" />
+            <TextField fx:id="filterfield" layoutX="211.0" />
+            <Label layoutX="123.0" layoutY="4.0" text="Rechercher" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="58.0" layoutY="35.0" mnemonicParsing="false" onAction="#navigatetoHome" text="Profile Admin">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="HomePane">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handlehome" text="Accueil" />
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>
