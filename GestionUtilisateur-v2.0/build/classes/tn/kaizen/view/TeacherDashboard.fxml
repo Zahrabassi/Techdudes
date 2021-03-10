@@ -94,7 +94,7 @@
             <Font size="32.0" />
          </font>
       </Text>
-      <Label fx:id="updatedatastatus" layoutX="67.0" layoutY="480.0" prefHeight="17.0" prefWidth="208.0" />
+      <Label fx:id="updatedatastatus" layoutX="35.0" layoutY="472.0" prefHeight="25.0" prefWidth="301.0" />
       <Button fx:id="btnDelete" layoutX="650.0" layoutY="52.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: 0000;" text="Supprimer mon compte" textFill="#800000" />
       <AnchorPane fx:id="deleteAccountPane" layoutX="532.0" layoutY="225.0">
          <children>
@@ -105,6 +105,6 @@
             <Button fx:id="canceldelete" layoutX="89.0" layoutY="112.0" mnemonicParsing="false" onAction="#handledelete" text="Annuler" />
          </children>
       </AnchorPane>
-      <Label fx:id="deletestatus" layoutX="579.0" layoutY="397.0" prefHeight="17.0" prefWidth="143.0" />
+      <Label fx:id="deletestatus" layoutX="508.0" layoutY="397.0" prefHeight="37.0" prefWidth="269.0" />
     </children>
 </AnchorPane>

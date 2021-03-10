@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GestionUtilisateur-v2.0.jar" size="29109" download="eager" />
+    <jar href="GestionUtilisateur-v2.0.jar" size="34968" download="eager" />
     <jar href="lib\activation.jar" size="124332" download="eager" />
     <jar href="lib\dsn-1.6.2.jar" size="18388" download="eager" />
     <jar href="lib\dsn.jar" size="18190" download="eager" />
