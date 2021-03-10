@@ -89,7 +89,6 @@ public class ChairmanDashboardController implements Initializable {
         User chairman = chairmanOp.getUser(chairmanId);
         System.out.println(chairman);
         chairmanIdLabel.setText(chairman.getUsername());
-        chairmanNameLabel.setText(chairman.getName());
         //To change body of generated methods, choose Tools | Templates.
     }
         public ObservableList<User> getUserList(){

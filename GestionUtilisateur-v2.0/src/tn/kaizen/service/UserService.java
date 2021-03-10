@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.print.DocFlavor;
+import org.mindrot.jbcrypt.BCrypt;
 import tn.kaizen.controllers.ChairmanDashboardController;
 import tn.kaizen.entity.User;
 import tn.kaizen.utils.DBConnection;
@@ -69,9 +70,11 @@ public class UserService implements Service{
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(queryVerification);
             if (resultSet.next()){
-                return true; // if there are elements, then the login credentials exist
-            }
+                
+                     return true; // if there are elements, then the login credentials exist
+                        }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return false; // login info does not exist in LOGINS table
     }
@@ -108,7 +111,20 @@ public class UserService implements Service{
         ResultSet resultSet = statement.executeQuery(query);
         return (resultSet.next());   
     }
-    
+//    public boolean CheckPWD(String password) throws SQLException{
+//        String query = "SELECT * FROM LOGINS WHERE PASSWORD='" + password + "' ";
+//        Connection connection = DBConnection.getConnection();
+//        Statement statement = connection.createStatement();
+//        ResultSet resultSet = statement.executeQuery(query);
+//            if (resultSet.next()) {
+//                String pswd = resultSet.getString("password");
+//                if (BCrypt.checkpw(password, pswd))
+//                {
+//                    return true;
+//                }
+//            }
+//        return false;
+//    }
     @Override
     public User getUser(String username) throws SQLException {
         Connection connection = DBConnection.getConnection();
@@ -120,12 +136,30 @@ public class UserService implements Service{
         if (!resultSet.next())
             return null;
 
-        String Name = resultSet.getString("Name");
+        String Name = resultSet.getString("NAME");
         
 
         return new User(username, Name);
     }
 
+   
+    @Override
+    public User getUserdata(String username) throws SQLException {
+        Connection connection = DBConnection.getConnection();
+        String query = String.format("SELECT * FROM LOGINS WHERE USERNAME='%s'", username);
+        Statement statement = connection.createStatement();
+
+        ResultSet resultSet = statement.executeQuery(query);
+
+        if (!resultSet.next())
+            return null;
+
+        String Name = resultSet.getString("Name");
+        String Email = resultSet.getString("Email");
+        String password = resultSet.getString("PASSWORD");
+
+        return new User(Name, Email, username, password);
+    }
     @Override
     public void UpdatePwd(String email, String pwd) {
         
@@ -158,4 +192,9 @@ public class UserService implements Service{
 		return email.matches("^[a-zA-Z0-9\\.\\-\\_]+@([a-zA-Z0-9\\-\\_\\.]+\\.)+([a-zA-Z]{2,4})$");
 	return false;
 }
+    @Override
+    public void updateUser(User user,String id){
+        String query = String.format("UPDATE LOGINS SET USERNAME='%s', PASSWORD='%s', Name='%s', Email='%s' WHERE USERNAME='%s'",user.getUsername(),user.getPassword(),user.getName(),user.getEmail(),id );
+        executeQuery(query);
+    }
 }

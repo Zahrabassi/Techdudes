@@ -19,10 +19,8 @@
         <Rectangle fill="DODGERBLUE" height="87.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: #2D75E8;" width="800.0" />
         <HBox alignment="CENTER_RIGHT" layoutY="89.0" prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #2D75E8;">
             <children>
-                <GridPane prefHeight="46.0" prefWidth="659.0">
+                <GridPane prefHeight="46.0" prefWidth="304.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="106.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="378.0" minWidth="10.0" prefWidth="233.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.0" minWidth="10.0" prefWidth="142.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="183.0" />
                     </columnConstraints>
@@ -30,7 +28,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label prefHeight="20.0" prefWidth="81.0" text="Nom" textFill="#f4e8e8">
+                        <Label prefHeight="20.0" prefWidth="113.0" text="Nom d'utlisateur" textFill="#f4e8e8">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -38,23 +36,7 @@
                                 <Insets />
                             </opaqueInsets>
                         </Label>
-                        <Label fx:id="chairmanNameLabel" text="Nom" textFill="#f4e8e8" GridPane.columnIndex="1">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                        </Label>
-                        <Label prefHeight="20.0" prefWidth="113.0" text="Nom d'utlisateur" textFill="#f4e8e8" GridPane.columnIndex="2">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                        </Label>
-                        <Label fx:id="chairmanIdLabel" text="USERNAME" textFill="#f4e8e8" GridPane.columnIndex="3">
+                        <Label fx:id="chairmanIdLabel" text="USERNAME" textFill="#f4e8e8" GridPane.columnIndex="1">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>

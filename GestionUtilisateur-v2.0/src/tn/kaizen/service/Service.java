@@ -25,9 +25,12 @@ public interface Service {
     boolean verifyUserLogin(User logins);
     String getUserType(User logins) throws SQLException;
     boolean exists(User user) throws SQLException;
+
     public boolean Mailexists(User user) throws SQLException ;
     public User getUser(String username) throws SQLException;
+    public User getUserdata(String username) throws SQLException ;
     void UpdatePwd(String email,String pwd);
     public void deleteButton(User user);
     public boolean isValid(String email);
+    public void updateUser(User user,String id);
 }

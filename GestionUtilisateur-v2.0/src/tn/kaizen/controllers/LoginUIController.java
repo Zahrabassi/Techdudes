@@ -38,6 +38,7 @@ import java.util.Properties;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import org.mindrot.jbcrypt.BCrypt;
 
 
 
@@ -109,7 +110,7 @@ public class LoginUIController implements Initializable {
         // TODO
         forgetpassPane.setVisible(false);
         newpassPane.setVisible(false);
-        userTypes = FXCollections.observableArrayList("Enseignant", "Etudiant");
+        userTypes = FXCollections.observableArrayList("Enseignant", "Etudiant","Admin");
         signupUserTypeComboBox.setItems(userTypes);
         signupUserTypeComboBox.getSelectionModel().selectLast();
     }    
@@ -130,6 +131,7 @@ public class LoginUIController implements Initializable {
         * Getting all the values from textfields and combobox if "Signup" page
         * */
         String username = signupUsernameField.getText();
+        //String password =BCrypt.hashpw(signupPasswordField.getText(), BCrypt.gensalt());
         String password = signupPasswordField.getText();
         String userType = signupUserTypeComboBox.getValue();
         String name = signupNameField.getText();
@@ -175,7 +177,8 @@ public class LoginUIController implements Initializable {
     private void handleLoginButton(ActionEvent actionEvent) throws SQLException {
         String username = loginUsernameField.getText();
         String password = loginPasswordField.getText();
-
+        //String password =BCrypt.hashpw(loginPasswordField.getText(), BCrypt.gensalt());
+        
         if (!username.isEmpty() && !password.isEmpty()){
             loginStatusLabel.setText(null);
             //User user = new User(name, email, username, password, "temp");
