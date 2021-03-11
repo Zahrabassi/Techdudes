@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestioncour.DevoirMainController">
+   <children>
+      <Button fx:id="searchDev" layoutX="636.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="94.0" text="RECHERCHE" />
+      <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="150.0" prefWidth="860.0" style="-fx-background-color: #2D75E8;" />
+      <ComboBox fx:id="tfDes" layoutX="116.0" layoutY="349.0" prefHeight="26.0" prefWidth="174.0" />
+      <TextField fx:id="tfNomD" layoutX="116.0" layoutY="289.0" prefHeight="26.0" prefWidth="174.0" />
+      <TextField fx:id="tfIdD" layoutX="116.0" layoutY="238.0" prefHeight="26.0" prefWidth="174.0" />
+      <VBox layoutX="14.0" layoutY="238.0" prefHeight="170.0" prefWidth="94.0" spacing="35.0">
+         <children>
+            <Label text="idD" />
+            <Label text="nomD" />
+            <Label text="description" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvDev" layoutX="365.0" layoutY="250.0" prefHeight="250.0" prefWidth="385.0">
+         <columns>
+            <TableColumn fx:id="colIdD" prefWidth="58.4000244140625" text="idD" />
+            <TableColumn fx:id="colNomD" prefWidth="102.40005493164062" text="nomD" />
+            <TableColumn fx:id="colDD" prefWidth="224.0" text="description" />
+         </columns>
+      </TableView>
+      <Hyperlink layoutX="832.0" layoutY="149.0" onAction="#goToHome" text="X" textFill="#060606" />
+      <Button fx:id="btnmodifdev" layoutX="172.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="82.0" text="Modifier" />
+      <Button fx:id="btnsuppdev" layoutX="271.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="82.0" text="Supprimer" />
+      <TextField fx:id="tfRech" layoutX="430.0" layoutY="193.0" prefHeight="26.0" prefWidth="174.0" />
+      <Button fx:id="btnajoutdev" layoutX="66.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="28.0" prefWidth="82.0" text="Ajouter" />
+   </children>
+</AnchorPane>
