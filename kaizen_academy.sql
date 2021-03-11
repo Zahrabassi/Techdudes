@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 11 mars 2021 à 09:11
+-- Généré le : jeu. 11 mars 2021 à 09:18
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -185,6 +185,29 @@ INSERT INTO `logins` (`USERNAME`, `PASSWORD`, `Name`, `Email`, `USERTYPE`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `meet`
+--
+
+CREATE TABLE `meet` (
+  `idM` int(11) NOT NULL,
+  `lienM` varchar(50) NOT NULL,
+  `ratee` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `meet`
+--
+
+INSERT INTO `meet` (`idM`, `lienM`, `ratee`) VALUES
+(1, 'popooooooo', 5),
+(2, 'pppp', 5),
+(6, 'yyyyyyyyyyyyyyyyyyyyy', 5),
+(7, 'www.meet.com', 5),
+(8, 'm', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `promotion`
 --
 
@@ -255,6 +278,12 @@ ALTER TABLE `eval_etudiant`
 --
 ALTER TABLE `logins`
   ADD PRIMARY KEY (`USERNAME`);
+
+--
+-- Index pour la table `meet`
+--
+ALTER TABLE `meet`
+  ADD PRIMARY KEY (`idM`);
 
 --
 -- Index pour la table `promotion`
