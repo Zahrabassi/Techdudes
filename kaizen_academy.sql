@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 11 mars 2021 à 09:18
+-- Généré le : jeu. 11 mars 2021 à 10:21
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -85,6 +85,33 @@ INSERT INTO `cour` (`idC`, `nomCour`, `nomEnseignant`, `description`) VALUES
 (55, 'oooooo', ' scsdvaaa', 'aaaaa'),
 (66, 'pppppppp', ' oioii', 'uuuu'),
 (88, 'fvbfg', ' scsdv', 'sdfwsdv');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `devoir`
+--
+
+CREATE TABLE `devoir` (
+  `idD` int(11) NOT NULL,
+  `nomD` varchar(50) NOT NULL,
+  `description` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `devoir`
+--
+
+INSERT INTO `devoir` (`idD`, `nomD`, `description`) VALUES
+(1, 'YUTTUI', ' ENCOURS'),
+(2, 'aaaa', 'FAIT '),
+(4, 'tp', ' A FAIRE'),
+(5, 'ppppppppp', ' FAIT '),
+(9, 'pppppiiiiiiiiii', ' A FAIRE'),
+(11, 'YUTTUI', ' ENCOURS'),
+(17, 'aaaa', 'FAIT '),
+(99, 'tp éco 1', ' ENCOURS'),
+(8888, 'pppppp', ' A FAIRE');
 
 -- --------------------------------------------------------
 
@@ -259,6 +286,12 @@ ALTER TABLE `achat`
 --
 ALTER TABLE `cour`
   ADD PRIMARY KEY (`idC`);
+
+--
+-- Index pour la table `devoir`
+--
+ALTER TABLE `devoir`
+  ADD PRIMARY KEY (`idD`);
 
 --
 -- Index pour la table `evaluation`
