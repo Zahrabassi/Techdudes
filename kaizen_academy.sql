@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 08 mars 2021 à 16:19
+-- Généré le : jeu. 11 mars 2021 à 09:11
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -24,81 +24,81 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `achat`
+--
+
+CREATE TABLE `achat` (
+  `id` int(11) NOT NULL,
+  `id_f` int(11) NOT NULL,
+  `id_etud` int(11) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `prix` decimal(10,3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `achat`
+--
+
+INSERT INTO `achat` (`id`, `id_f`, `id_etud`, `date`, `prix`) VALUES
+(3, 2, 1, '2021-03-06', '340.500'),
+(4, 3, 1, '2021-03-06', '200.000'),
+(5, 4, 1, '2021-03-06', '450.000'),
+(6, 2, 1, '2021-03-06', '340.500'),
+(7, 3, 1, '2021-03-06', '200.000'),
+(8, 2, 1, '2021-03-06', '340.500'),
+(9, 3, 1, '2021-03-06', '200.000'),
+(10, 4, 1, '2021-03-06', '450.000'),
+(11, 2, 1, '2021-03-06', '340.500'),
+(12, 3, 1, '2021-03-06', '200.000'),
+(13, 2, 1, '2021-03-06', '340.500'),
+(14, 2, 1, '2021-03-07', '340.500'),
+(15, 3, 1, '2021-03-07', '200.000'),
+(16, 4, 1, '2021-03-07', '450.000'),
+(17, 4, 1, '2021-03-08', '450.000'),
+(18, 2, 1, '2021-03-08', '340.500'),
+(19, 3, 1, '2021-03-08', '200.000'),
+(20, 4, 1, '2021-03-08', '450.000'),
+(21, 3, 1, '2021-03-09', '200.000'),
+(22, 2, 1, '2021-03-09', '340.500'),
+(23, 3, 1, '2021-03-09', '200.000');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `cour`
 --
 
 CREATE TABLE `cour` (
   `idC` int(11) NOT NULL,
-  `nomCour` varchar(50) NOT NULL,
-  `idEnseignant` int(11) NOT NULL,
-  `description` varchar(50) NOT NULL
+  `nomCour` varchar(20) NOT NULL,
+  `nomEnseignant` varchar(20) NOT NULL,
+  `description` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `cour`
+--
+
+INSERT INTO `cour` (`idC`, `nomCour`, `nomEnseignant`, `description`) VALUES
+(2, 'eco', 'Narjess massoudi', 'économie'),
+(4, 'GL', ' Mohamed', 'genie logiciel'),
+(55, 'oooooo', ' scsdvaaa', 'aaaaa'),
+(66, 'pppppppp', ' oioii', 'uuuu'),
+(88, 'fvbfg', ' scsdv', 'sdfwsdv');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `devoir`
+-- Structure de la table `emplois`
 --
 
-CREATE TABLE `devoir` (
-  `idD` int(11) NOT NULL,
-  `nomD` varchar(50) NOT NULL,
-  `description` varchar(50) NOT NULL,
-  `dateLim` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `emplois du temps`
---
-
-CREATE TABLE `emplois du temps` (
-  `idEmplois` varchar(20) NOT NULL,
-  `login` int(20) NOT NULL,
+CREATE TABLE `emplois` (
+  `idEmp` varchar(20) NOT NULL,
+  `classe` varchar(15) NOT NULL,
+  `matiere` varchar(50) NOT NULL,
   `heureDebut` int(15) NOT NULL,
-  `duree` int(50) NOT NULL,
-  `classe` int(15) NOT NULL,
   `date` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `enseignant`
---
-
-CREATE TABLE `enseignant` (
-  `id_ens` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `enseignant`
---
-
-INSERT INTO `enseignant` (`id_ens`, `nom`, `prenom`) VALUES
-(1, 'Dridi', 'Ramzi'),
-(2, 'Arnaud ', 'Mercier'),
-(3, 'Houdoux', 'Mikael');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `etudiant`
---
-
-CREATE TABLE `etudiant` (
-  `id-etud` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `etudiant`
---
-
-INSERT INTO `etudiant` (`id-etud`) VALUES
-(1);
 
 -- --------------------------------------------------------
 
@@ -108,16 +108,29 @@ INSERT INTO `etudiant` (`id-etud`) VALUES
 
 CREATE TABLE `evaluation` (
   `id_eval` int(11) NOT NULL,
-  `moy` float NOT NULL,
-  `id_etud` int(11) NOT NULL
+  `Nom_evaluation` varchar(20) NOT NULL,
+  `lien_evaluation` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `evaluation`
 --
 
-INSERT INTO `evaluation` (`id_eval`, `moy`, `id_etud`) VALUES
-(1, 5, 1);
+INSERT INTO `evaluation` (`id_eval`, `Nom_evaluation`, `lien_evaluation`) VALUES
+(1, 'java', 'https://www.qcmquiz.com/QUESTIONNAIRES/QCM-Langage-Objet-Java.php'),
+(2, 'php', 'https://www.alsacreations.com/quiz/lire/12-PHP-debutant'),
+(3, 'symfony', 'https://www.m2iformation.fr/qcm/formation-symfony-4-demarrer/SYMF4-N1/');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `eval_etudiant`
+--
+
+CREATE TABLE `eval_etudiant` (
+  `id_eval` int(11) NOT NULL,
+  `id_etudiant` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -155,7 +168,7 @@ INSERT INTO `formation` (`id_f`, `intitule`, `description`, `date_debut`, `id_ev
 
 CREATE TABLE `logins` (
   `USERNAME` varchar(20) NOT NULL,
-  `PASSWORD` varchar(30) NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
   `Name` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `USERTYPE` varchar(10) NOT NULL
@@ -166,18 +179,44 @@ CREATE TABLE `logins` (
 --
 
 INSERT INTO `logins` (`USERNAME`, `PASSWORD`, `Name`, `Email`, `USERTYPE`) VALUES
-('iheb', 'iheb', '', '', 'Admin');
+('ahmed', 'ahmed', 'ahmed', 'iheb.hamdi.1@esprit.tn', 'Etudiant'),
+('iheb', 'iheb', 'iheb', '', 'Admin');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `meet`
+-- Structure de la table `promotion`
 --
 
-CREATE TABLE `meet` (
-  `idM` int(11) NOT NULL,
-  `lienM` varchar(50) NOT NULL,
-  `Date` date NOT NULL
+CREATE TABLE `promotion` (
+  `id` int(11) NOT NULL,
+  `id_f` int(11) NOT NULL,
+  `promo` decimal(10,3) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `promotion`
+--
+
+INSERT INTO `promotion` (`id`, `id_f`, `promo`, `date`) VALUES
+(1, 3, '33.000', '2021-03-09'),
+(3, 2, '75.000', '2021-03-01'),
+(4, 4, '60.000', '2021-03-04');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reclamation`
+--
+
+CREATE TABLE `reclamation` (
+  `id_reclam` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `sujet` varchar(500) NOT NULL,
+  `type` varchar(500) NOT NULL,
+  `contenu` text NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -185,10 +224,73 @@ CREATE TABLE `meet` (
 --
 
 --
+-- Index pour la table `achat`
+--
+ALTER TABLE `achat`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_achat_form` (`id_f`),
+  ADD KEY `fk_achat_etud` (`id_etud`);
+
+--
+-- Index pour la table `cour`
+--
+ALTER TABLE `cour`
+  ADD PRIMARY KEY (`idC`);
+
+--
+-- Index pour la table `evaluation`
+--
+ALTER TABLE `evaluation`
+  ADD PRIMARY KEY (`id_eval`);
+
+--
+-- Index pour la table `eval_etudiant`
+--
+ALTER TABLE `eval_etudiant`
+  ADD PRIMARY KEY (`id_eval`,`id_etudiant`),
+  ADD KEY `fk_etudiant_eval` (`id_etudiant`);
+
+--
 -- Index pour la table `logins`
 --
 ALTER TABLE `logins`
   ADD PRIMARY KEY (`USERNAME`);
+
+--
+-- Index pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_promo_form` (`id_f`);
+
+--
+-- Index pour la table `reclamation`
+--
+ALTER TABLE `reclamation`
+  ADD PRIMARY KEY (`id_reclam`),
+  ADD KEY `fk_reclam_user` (`id_user`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `achat`
+--
+ALTER TABLE `achat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `reclamation`
+--
+ALTER TABLE `reclamation`
+  MODIFY `id_reclam` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
