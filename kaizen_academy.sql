@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 11 mars 2021 à 10:21
+-- Généré le : sam. 20 mars 2021 à 23:52
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -130,6 +130,44 @@ CREATE TABLE `emplois` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `enseignant`
+--
+
+CREATE TABLE `enseignant` (
+  `id_ens` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `enseignant`
+--
+
+INSERT INTO `enseignant` (`id_ens`, `nom`, `prenom`) VALUES
+(1, 'Dridi', 'Ramzi'),
+(2, 'Arnaud ', 'Mercier'),
+(3, 'Houdoux', 'Mikael');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etudiant`
+--
+
+CREATE TABLE `etudiant` (
+  `id-etud` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `etudiant`
+--
+
+INSERT INTO `etudiant` (`id-etud`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `evaluation`
 --
 
@@ -185,7 +223,11 @@ CREATE TABLE `formation` (
 INSERT INTO `formation` (`id_f`, `intitule`, `description`, `date_debut`, `id_eval`, `id_formateur`, `date_fin`, `type`, `prix`, `img`) VALUES
 (2, 'Programmation avec java pour les débutants', 'Ce cours est chargée de présenter les bases du langage java et le faire comprendre grâce aux exemples pratiques simples et compréhensible à tout le monde.\r\n\r\nVous allez comprendre;\r\nInstallez et utilisez la machine virtuelle Java et l\'IDE Eclipse\r\nles différents variables en java\r\nles boucles et les conditions\r\nles méthodes et le constructeur\r\nl\'héritage et polymorphisme\r\nles classes abstraites et les interfaces\r\n\r\nÀ qui ce cours s\'adresse-t-il ?\r\nToute personne qui veut apprendre java\r\nLes développeurs qui sont intéressés par la création des logiciels\r\nLes personnes qui veulent trouver de travail rapidement', '2021-03-01', 1, 1, '2021-03-20', 'dev', 340.5, 'java.png'),
 (3, 'Apprendre la programmation en C++', 'Bonjour a tous et bienvenue dans cette formation sur la programmation et plus spécialement sur le développement logiciel en C, je m\'appelle Arnaud Mercier et je serai votre formateur tout au long de ce cours\r\n\r\nje suis ingénieur informatique spécialisé notamment dans l’architecture et le développement logiciel. Lors de mon parcours professionnel j’ai eu l’occasion de travailler sur de très nombreux projets de développement en C comme par exemple:\r\n\r\nJeu vidéo pour la Nintendo DS\r\nDécodeur TV pour Orange.\r\nLogiciel embarqué pour des jumelles d’observation chez Safran\r\n\r\net bien d’autres', '2021-03-01', 1, 2, '2021-03-31', 'dev', 200, 'cp.jpg'),
-(4, 'Apprendre Symfony 5 par la création d\'un site e-commerce', 'Je suis intiment convaincu que pour apprendre efficacement il faut pratiquer et se mesurer à un projet complexe. C\'est comme ça que j\'ai appris le développement. Je propose dans cette formation à tous les développeurs PHP un apprentissage pas à pas des concepts de Symfony 5 à travers la création d\'un site e-commerce complet.\r\n\r\n* Vos utilisateurs pourront s\'inscrire, se connecter, filtrer les produits, les mettre dans le panier, accéder au tunnel d\'achat, payer et recevoir les emails de confirmation.\r\n\r\n* Vos administrateurs pourront suivre les commandes, gérer les utilisateurs et les produits à travers une interface dédiée : le backoffice.\r\n\r\nL\'objectif est de vous fournir toutes les notions liées à Symfony 5 à chaque étape du projet. Ainsi, vous serez en mesure ensuite de réutiliser du code et de créer vos projets en autonomie.\r\n\r\nÀ qui ce cours s\'adresse-t-il ?\r\nAux développeur PHP qui souhaitent découvrir Symfony 5 à l\'aide d\'un projet e-commerce concret et complexe\r\nAux développeurs qui souhaitent aller plus loin que la documentation offerte par Symfony et passer à la pratique.', '2021-03-01', 1, 3, '2021-05-31', 'dev', 450, 'symfo.png');
+(4, 'Apprendre Symfony 5 par la création d\'un site e-commerce', 'Je suis intiment convaincu que pour apprendre efficacement il faut pratiquer et se mesurer à un projet complexe. C\'est comme ça que j\'ai appris le développement. Je propose dans cette formation à tous les développeurs PHP un apprentissage pas à pas des concepts de Symfony 5 à travers la création d\'un site e-commerce complet.\r\n\r\n* Vos utilisateurs pourront s\'inscrire, se connecter, filtrer les produits, les mettre dans le panier, accéder au tunnel d\'achat, payer et recevoir les emails de confirmation.\r\n\r\n* Vos administrateurs pourront suivre les commandes, gérer les utilisateurs et les produits à travers une interface dédiée : le backoffice.\r\n\r\nL\'objectif est de vous fournir toutes les notions liées à Symfony 5 à chaque étape du projet. Ainsi, vous serez en mesure ensuite de réutiliser du code et de créer vos projets en autonomie.\r\n\r\nÀ qui ce cours s\'adresse-t-il ?\r\nAux développeur PHP qui souhaitent découvrir Symfony 5 à l\'aide d\'un projet e-commerce concret et complexe\r\nAux développeurs qui souhaitent aller plus loin que la documentation offerte par Symfony et passer à la pratique.', '2021-03-01', 1, 3, '2021-05-31', 'dev', 450, 'symfo.png'),
+(2, 'Programmation avec java pour les débutants', 'Ce cours est chargée de présenter les bases du langage java et le faire comprendre grâce aux exemples pratiques simples et compréhensible à tout le monde.\r\n\r\nVous allez comprendre;\r\nInstallez et utilisez la machine virtuelle Java et l\'IDE Eclipse\r\nles différents variables en java\r\nles boucles et les conditions\r\nles méthodes et le constructeur\r\nl\'héritage et polymorphisme\r\nles classes abstraites et les interfaces\r\n\r\nÀ qui ce cours s\'adresse-t-il ?\r\nToute personne qui veut apprendre java\r\nLes développeurs qui sont intéressés par la création des logiciels\r\nLes personnes qui veulent trouver de travail rapidement', '2021-03-01', 1, 1, '2021-03-20', 'dev', 340.5, 'java.png'),
+(3, 'Apprendre la programmation en C++', 'Bonjour a tous et bienvenue dans cette formation sur la programmation et plus spécialement sur le développement logiciel en C, je m\'appelle Arnaud Mercier et je serai votre formateur tout au long de ce cours\r\n\r\nje suis ingénieur informatique spécialisé notamment dans l’architecture et le développement logiciel. Lors de mon parcours professionnel j’ai eu l’occasion de travailler sur de très nombreux projets de développement en C comme par exemple:\r\n\r\nJeu vidéo pour la Nintendo DS\r\nDécodeur TV pour Orange.\r\nLogiciel embarqué pour des jumelles d’observation chez Safran\r\n\r\net bien d’autres', '2021-03-01', 1, 2, '2021-03-31', 'dev', 200, 'cp.jpg'),
+(4, 'Apprendre Symfony 5 par la création d\'un site e-commerce', 'Je suis intiment convaincu que pour apprendre efficacement il faut pratiquer et se mesurer à un projet complexe. C\'est comme ça que j\'ai appris le développement. Je propose dans cette formation à tous les développeurs PHP un apprentissage pas à pas des concepts de Symfony 5 à travers la création d\'un site e-commerce complet.\r\n\r\n* Vos utilisateurs pourront s\'inscrire, se connecter, filtrer les produits, les mettre dans le panier, accéder au tunnel d\'achat, payer et recevoir les emails de confirmation.\r\n\r\n* Vos administrateurs pourront suivre les commandes, gérer les utilisateurs et les produits à travers une interface dédiée : le backoffice.\r\n\r\nL\'objectif est de vous fournir toutes les notions liées à Symfony 5 à chaque étape du projet. Ainsi, vous serez en mesure ensuite de réutiliser du code et de créer vos projets en autonomie.\r\n\r\nÀ qui ce cours s\'adresse-t-il ?\r\nAux développeur PHP qui souhaitent découvrir Symfony 5 à l\'aide d\'un projet e-commerce concret et complexe\r\nAux développeurs qui souhaitent aller plus loin que la documentation offerte par Symfony et passer à la pratique.', '2021-03-01', 1, 3, '2021-05-31', 'dev', 450, 'symfo.png'),
+(5, 'français ', 'Apprenez le français rapidement! formation de valeur à Kaizen academy ', '2021-03-18', 1, 1, '2021-03-18', 'langues', 100, '');
 
 -- --------------------------------------------------------
 
@@ -194,6 +236,7 @@ INSERT INTO `formation` (`id_f`, `intitule`, `description`, `date_debut`, `id_ev
 --
 
 CREATE TABLE `logins` (
+  `id` int(11) NOT NULL,
   `USERNAME` varchar(20) NOT NULL,
   `PASSWORD` varchar(100) NOT NULL,
   `Name` varchar(20) NOT NULL,
@@ -205,9 +248,9 @@ CREATE TABLE `logins` (
 -- Déchargement des données de la table `logins`
 --
 
-INSERT INTO `logins` (`USERNAME`, `PASSWORD`, `Name`, `Email`, `USERTYPE`) VALUES
-('ahmed', 'ahmed', 'ahmed', 'iheb.hamdi.1@esprit.tn', 'Etudiant'),
-('iheb', 'iheb', 'iheb', '', 'Admin');
+INSERT INTO `logins` (`id`, `USERNAME`, `PASSWORD`, `Name`, `Email`, `USERTYPE`) VALUES
+(3, 'iheb', 'iheb', 'iheb', 'iheb.hamdi.1@esprit.tn', 'Admin'),
+(5, 'mouha', 'mouha', 'mouha', 'mouha@gmail.com', 'Enseignant');
 
 -- --------------------------------------------------------
 
@@ -235,6 +278,56 @@ INSERT INTO `meet` (`idM`, `lienM`, `ratee`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `message_reclam`
+--
+
+CREATE TABLE `message_reclam` (
+  `id` int(11) NOT NULL,
+  `id_reclam` int(11) NOT NULL,
+  `id_send` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `message_reclam`
+--
+
+INSERT INTO `message_reclam` (`id`, `id_reclam`, `id_send`, `message`, `date`) VALUES
+(7, 9, 5, 'Bonjour mr maki', '2021-03-11 00:07:26'),
+(8, 9, 4, 'Bonjour', '2021-03-11 00:07:36'),
+(11, 11, 4, 'salut', '2021-03-11 00:12:23'),
+(12, 11, 5, 'salut je vais vérifier', '2021-03-11 00:12:43'),
+(14, 13, 5, 'qsdfghj', '2021-03-11 00:28:00'),
+(15, 13, 4, 'qSDFGHGJK', '2021-03-11 00:28:17'),
+(16, 14, 5, 'raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2021-03-11 07:42:33'),
+(17, 14, 4, 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2021-03-11 07:42:47');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `paiement`
+--
+
+CREATE TABLE `paiement` (
+  `id` int(11) NOT NULL,
+  `num` varchar(12) NOT NULL,
+  `date_exp` date NOT NULL,
+  `code` varchar(4) NOT NULL,
+  `solde` decimal(10,3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `paiement`
+--
+
+INSERT INTO `paiement` (`id`, `num`, `date_exp`, `code`, `solde`) VALUES
+(1, '539912344321', '2022-06-01', '4545', '6019.500'),
+(2, '539912344322', '2021-03-10', '5050', '999009.500');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `promotion`
 --
 
@@ -252,7 +345,15 @@ CREATE TABLE `promotion` (
 INSERT INTO `promotion` (`id`, `id_f`, `promo`, `date`) VALUES
 (1, 3, '33.000', '2021-03-09'),
 (3, 2, '75.000', '2021-03-01'),
-(4, 4, '60.000', '2021-03-04');
+(4, 4, '60.000', '2021-03-04'),
+(10, 4, '22.000', '2021-03-11'),
+(11, 2, '45.000', '2021-03-11'),
+(12, 2, '12.000', '2021-03-11'),
+(13, 3, '15.000', '2021-03-11'),
+(14, 3, '85.000', '2021-03-11'),
+(15, 2, '47.000', '2021-03-11'),
+(16, 3, '19.000', '2021-03-11'),
+(17, 2, '17.000', '2021-03-11');
 
 -- --------------------------------------------------------
 
@@ -268,6 +369,21 @@ CREATE TABLE `reclamation` (
   `contenu` text NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `reclamation`
+--
+
+INSERT INTO `reclamation` (`id_reclam`, `id_user`, `sujet`, `type`, `contenu`, `date`) VALUES
+(3, 1, 'Problé d\'un achat', 'vente', 'Bonjour ,\nj ai eu un probléme lors de la confirmation d\'un achat \nmerci de m aider .', '2021-03-10'),
+(4, 1, 'probléme de conexion', 'probléme technique', 'Bonjour je peut pas me connect à votre site web il ya 2 jours .\nmerci de m\'aider svp', '2021-03-10'),
+(5, 1, 'Probléme ', 'autre', 'bla bla ...\nasasa \nsasasa k,lfnzkfnk a,kla,lk, \n', '2021-03-03'),
+(7, 4, 'Probléme d\'achat', 'vente', 'Bonjour ,\nje peut confirmer mon achat .\nmerci de m\'aider svp .', '2021-03-02'),
+(9, 4, 'Probléme de conexion', 'probléme technique', 'Bonjour ,\nje peut pas me connecter à votre plateform web .\nmerci de m\'aider svp .', '2021-03-08'),
+(11, 4, 'Probléme x', 'probléme technique', 'Bonjour ,\naide moi svp .', '2021-03-11'),
+(13, 4, 'QSDFGH', 'vente', 'qsdfh', '2021-03-09'),
+(14, 4, 'pokijhgfdoliukhjghf', 'vente', '\n$^poiuytrezsdfghjklmù', '2021-03-11'),
+(15, 4, 'formation retarde', 'probléme technique', '*ùmlkjhgf', '2021-03-11');
 
 --
 -- Index pour les tables déchargées
@@ -294,6 +410,18 @@ ALTER TABLE `devoir`
   ADD PRIMARY KEY (`idD`);
 
 --
+-- Index pour la table `enseignant`
+--
+ALTER TABLE `enseignant`
+  ADD PRIMARY KEY (`id_ens`);
+
+--
+-- Index pour la table `etudiant`
+--
+ALTER TABLE `etudiant`
+  ADD PRIMARY KEY (`id-etud`);
+
+--
 -- Index pour la table `evaluation`
 --
 ALTER TABLE `evaluation`
@@ -310,13 +438,27 @@ ALTER TABLE `eval_etudiant`
 -- Index pour la table `logins`
 --
 ALTER TABLE `logins`
-  ADD PRIMARY KEY (`USERNAME`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `meet`
 --
 ALTER TABLE `meet`
   ADD PRIMARY KEY (`idM`);
+
+--
+-- Index pour la table `message_reclam`
+--
+ALTER TABLE `message_reclam`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_msg_reclam` (`id_reclam`),
+  ADD KEY `fk_msg_user` (`id_send`);
+
+--
+-- Index pour la table `paiement`
+--
+ALTER TABLE `paiement`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `promotion`
@@ -340,19 +482,43 @@ ALTER TABLE `reclamation`
 -- AUTO_INCREMENT pour la table `achat`
 --
 ALTER TABLE `achat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT pour la table `evaluation`
+--
+ALTER TABLE `evaluation`
+  MODIFY `id_eval` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `logins`
+--
+ALTER TABLE `logins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `message_reclam`
+--
+ALTER TABLE `message_reclam`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT pour la table `paiement`
+--
+ALTER TABLE `paiement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `reclamation`
 --
 ALTER TABLE `reclamation`
-  MODIFY `id_reclam` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reclam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
