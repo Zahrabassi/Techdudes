@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" fx:id="container" prefHeight="111.0" prefWidth="863.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+   <children>
+      <HBox layoutX="69.0" layoutY="6.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox prefHeight="120.0" prefWidth="597.0">
+               <children>
+                  <Label fx:id="lb_titre" prefHeight="18.0" prefWidth="650.0" text="Label" textFill="#5297ec">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb_date" prefHeight="18.0" prefWidth="646.0" text="Label">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="2.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="16.0" top="4.0" />
+               </padding>
+            </VBox>
+            <Label fx:id="lb_prix" prefHeight="32.0" prefWidth="144.0" text="Label">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="16.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

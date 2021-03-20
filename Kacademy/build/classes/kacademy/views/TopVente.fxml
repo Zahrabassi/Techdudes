@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="559.0" prefWidth="924.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="kacademy.TopVenteController">
+   <children>
+      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="194.0" layoutY="6.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="34.0" prefWidth="899.0" style="-fx-border-color: #5297ec; -fx-border-width: 0 0 2 0;" text="TOP VENTES" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin>
+            </Label>
+            <BarChart fx:id="chart" legendSide="RIGHT" prefWidth="700.0" VBox.vgrow="ALWAYS">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="xaxis" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Vente en (TND)" side="LEFT" />
+              </yAxis>
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+            </BarChart>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </VBox>
+      <Button fx:id="btn_back" layoutX="24.0" layoutY="18.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Retour" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="518.0" prefWidth="814.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kacademy.LoginController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="img_logo" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="32.0" />
+               </VBox.margin></ImageView>
+            <HBox alignment="CENTER" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="txt_username" alignment="CENTER" focusTraversable="false" prefHeight="36.0" prefWidth="420.0" promptText="Username" style="-fx-background-radius: 50px; -fx-border-color: #5297ec; -fx-border-radius: 50px; -fx-border-width: 1.5px;" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="txt_pass" alignment="CENTER" focusTraversable="false" prefHeight="36.0" prefWidth="420.0" promptText="Password" style="-fx-background-radius: 50px; -fx-border-color: #5297ec; -fx-border-radius: 50px; -fx-border-width: 1.5px;" />
+               </children>
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+            </HBox>
+            <Label fx:id="lb_err" alignment="CENTER" prefHeight="18.0" prefWidth="290.0" textFill="#dd4545">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btn_login" mnemonicParsing="false" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: #5297ec;" text="Login" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

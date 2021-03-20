@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="743.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kacademy.DevoirMainController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="150.0" prefWidth="1033.0" style="-fx-background-color: #2D75E8;" />
+      <ComboBox fx:id="tfDes" layoutX="638.0" layoutY="167.0" prefHeight="26.0" prefWidth="174.0" />
+      <TextField fx:id="tfNomD" layoutX="360.0" layoutY="167.0" prefHeight="26.0" prefWidth="174.0" />
+      <TextField fx:id="tfIdD" layoutX="97.0" layoutY="167.0" prefHeight="26.0" prefWidth="174.0" />
+      <VBox layoutX="14.0" layoutY="238.0" prefHeight="170.0" prefWidth="94.0" spacing="35.0" />
+      <TableView fx:id="tvDev" layoutX="26.0" layoutY="391.0" prefHeight="322.0" prefWidth="571.0">
+         <columns>
+            <TableColumn fx:id="colIdD" prefWidth="58.4000244140625" text="idD" />
+            <TableColumn fx:id="colNomD" prefWidth="102.40005493164062" text="nomD" />
+            <TableColumn fx:id="colDD" prefWidth="408.0" text="description" />
+         </columns>
+      </TableView>
+      <Hyperlink layoutX="990.0" layoutY="158.0" onAction="#goToHome" text="X" textFill="#060606" />
+      <Button fx:id="btnmodifdev" layoutX="846.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="103.0" text="Modifier" />
+      <Button fx:id="btnsuppdev" layoutX="846.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="103.0" text="Supprimer" />
+      <TextField fx:id="tfRech" layoutX="184.0" layoutY="323.0" prefHeight="26.0" prefWidth="174.0" />
+      <Button fx:id="btnajoutdev" layoutX="846.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="103.0" text="Ajouter" />
+      <Label layoutX="71.0" layoutY="172.0" text="idD" />
+      <Label layoutX="293.0" layoutY="172.0" text="nomD" />
+      <Label layoutX="546.0" layoutY="171.0" text="description" />
+      <PieChart fx:id="pane" layoutX="650.0" layoutY="323.0" prefHeight="332.0" prefWidth="319.0" />
+      <Button fx:id="chart" layoutX="638.0" layoutY="682.0" mnemonicParsing="false" onAction="#ButtonAction" text="PIE CHART" />
+   </children>
+</AnchorPane>

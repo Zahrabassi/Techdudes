@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kacademy.MenuEtuController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="5.0" layoutY="-52.0" prefHeight="539.0" prefWidth="871.0">
+         <children>
+            <Pane layoutX="-17.0" layoutY="-12.0" prefHeight="156.0" prefWidth="890.0" style="-fx-background-color: #2D75E8;">
+               <children>
+                  <Button fx:id="btn_deco" layoutX="699.0" layoutY="66.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #eb5262; -fx-border-width: 1.5px;" text="Se déconnecter" textFill="#eb5262">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="navigatetoProfile" layoutX="734.0" layoutY="111.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Profile" textFill="#5297ec">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Button fx:id="btn_deco" layoutX="-1.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #ffffff; -fx-border-color: #eb5262; -fx-border-width: 1.5px;" text="Se déconnecter" textFill="#eb5262">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_formation" layoutX="328.0" layoutY="342.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Les formations" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_reclam" layoutX="230.0" layoutY="190.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Réclamation" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_achat" layoutX="473.0" layoutY="190.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Achat formation" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_cour" layoutX="68.0" layoutY="267.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="COUR" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_dev" layoutX="328.0" layoutY="267.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="DEVOIR" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_meet" layoutX="558.0" layoutY="267.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="MEET" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="img_logo" fitHeight="150.0" fitWidth="200.0" layoutX="51.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/ka_logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="168.0" layoutY="93.0" style="-fx-background-color: #e54949;" text="Etudiant" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

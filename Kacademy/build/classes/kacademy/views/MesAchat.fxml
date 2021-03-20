@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kacademy.MesAchatController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="70.0" prefWidth="913.0" text="Mes achats" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <padding>
+                  <Insets bottom="16.0" left="200.0" right="16.0" top="16.0" />
+               </padding>
+            </Label>
+            <ListView fx:id="list_achat" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Button fx:id="btn_back" layoutX="24.0" layoutY="16.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Retour" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

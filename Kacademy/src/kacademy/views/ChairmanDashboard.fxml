@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kacademy.ChairmanDashboardController">
+    <children>
+        <Rectangle fill="DODGERBLUE" height="87.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: #2D75E8;" width="800.0" />
+        <HBox alignment="CENTER_RIGHT" layoutY="89.0" prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #2D75E8;">
+            <children>
+                <GridPane prefHeight="46.0" prefWidth="304.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.0" minWidth="10.0" prefWidth="142.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="183.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="20.0" prefWidth="113.0" text="Nom d'utlisateur" textFill="#f4e8e8">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                        <Label fx:id="chairmanIdLabel" text="USERNAME" textFill="#f4e8e8" GridPane.columnIndex="1">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+        <Rectangle fill="#ffdb6f" height="4.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+      <AnchorPane fx:id="AdminPane" layoutX="89.0" layoutY="155.0">
+         <children>
+            <TableView fx:id="user" layoutY="38.0" prefHeight="294.0" prefWidth="595.0">
+              <columns>
+                <TableColumn fx:id="username" prefWidth="207.0" text="Nom d'utlisateur" />
+                <TableColumn fx:id="name" minWidth="0.0" prefWidth="192.0" text="Nom" />
+                  <TableColumn fx:id="email" prefWidth="195.0" text="Email" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnDelete" layoutX="262.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Supprimer" />
+            <TextField fx:id="filterfield" layoutX="211.0" />
+            <Label layoutX="123.0" layoutY="4.0" text="Rechercher" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="HomePane">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handlehome" text="Accueil" />
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="img_logo" fitHeight="150.0" fitWidth="200.0" layoutX="69.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/dossier%20integration/integration/INTEGR/icons/ka_logo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="607.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleDashboardSignout" prefHeight="36.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #eb5262; -fx-border-width: 1.5px;" text="Se déconnecter" textFill="#eb5262">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="197.0" layoutY="54.0" style="-fx-background-color: #e54949;" text="Admin" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+    </children>
+</AnchorPane>

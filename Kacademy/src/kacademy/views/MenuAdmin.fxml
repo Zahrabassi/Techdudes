@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="860.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kacademy.MenuAdminController">
+   <children>
+      <ImageView fx:id="img_logo" fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="47.0">
+         <image>
+            <Image url="@../../../icons/ka_logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="160.0" layoutY="89.0" style="-fx-background-color: #e54949;" text="Admin" textFill="WHITE" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="88.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="884.0" style="-fx-border-color: #5297ec;" text="MENU" textFill="#5297ec" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_deco" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #eb5262; -fx-border-width: 1.5px;" text="Se déconnecter" textFill="#eb5262" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="53.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_promo" layoutX="116.0" layoutY="171.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Gestion de promotion" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_reclam" layoutX="372.0" layoutY="171.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Gestion des réclamations" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_formation" layoutX="116.0" layoutY="269.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Gestion des  formations" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_evaluation" layoutX="372.0" layoutY="269.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Gestion des  évaluations" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="navigatetoProfile" layoutX="570.0" layoutY="92.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="115.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Profile" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
