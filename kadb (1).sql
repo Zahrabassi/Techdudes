@@ -110,6 +110,24 @@ INSERT INTO `cour` (`idC`, `nomCour`, `nomEnseignant`, `description`) VALUES
 
 -- --------------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS `enseignan` (
+  `id` int(20) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telephone` varchar(8) NOT NULL,
+  `statut` varchar(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `enseignan`
+--
+
+INSERT INTO `enseignan` (`id`, `nom`, `prenom`, `email`, `telephone`, `statut`) VALUES
+(0, '', '', '', '', ''),
+(55, 'emna', 'ouakassi', 'emna@gmail.com', '123456', 'vacataire');
+
 --
 -- Structure de la table `devoir`
 --
