@@ -1,6 +1,12 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'front.html.twig' %}
+{% block body %}
+<img align="center" src="{{ asset('img/ka_logo.png') }}" alt="">
+{% block slider %}
+{% endblock %}
 {% block content %}
+    <br>
+    <br>
+    <br>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -26,4 +32,7 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
 {% endblock %}

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: giorgiopagnoni
- * Date: 17/01/18
- * Time: 11:49
- */
 
 namespace App\Controller;
 
@@ -16,11 +10,19 @@ use Symfony\Component\HttpFoundation\Response;
 class SiteController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/home", name="homepage")
      * @return Response
      */
     function homepage()
     {
-        return $this->render('index.html.twig');
+        return $this->render('front.html.twig');
+    }
+    /**
+     * @Route("/dash", name="dash")
+     * @return Response
+     */
+    function dash()
+    {
+        return $this->render('base.html.twig');
     }
 }

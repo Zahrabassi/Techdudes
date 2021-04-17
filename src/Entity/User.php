@@ -1,14 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: giorgiopagnoni
- * Date: 17/01/18
- * Time: 10:22
- */
 
 namespace App\Entity;
 
 use App\Validator\Constraints\ComplexPassword;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
@@ -74,6 +70,12 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $activatedAt;
+
+    public function __construct()
+    {
+        $this->evenements = new ArrayCollection();
+    }
+    protected $captchaCode;
 
     /**
      * @return integer
@@ -170,7 +172,15 @@ class User implements AdvancedUserInterface, \Serializable
     {
         $this->activatedAt = $activatedAt;
     }
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
 
+    public function setCaptchaCode($captchaCode)
+    {
+        $this->captchaCode = $captchaCode;
+    }
     // not used
 
     /**
@@ -241,4 +251,5 @@ class User implements AdvancedUserInterface, \Serializable
             $this->password,
             ) = unserialize($serialized);
     }
+
 }

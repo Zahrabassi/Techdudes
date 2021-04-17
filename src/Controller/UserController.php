@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: giorgiopagnoni
- * Date: 17/01/18
- * Time: 10:14
- */
 
 namespace App\Controller;
 
@@ -58,10 +52,10 @@ class UserController extends AbstractController
             $user = $form->getData();
 
             try {
-                if (!$captchaValidator->validateCaptcha($request->get('g-recaptcha-response'))) {
-                    $form->addError(new FormError($translator->trans('captcha.wrong')));
-                    throw new ValidatorException('captcha.wrong');
-                }
+                // if (!$captchaValidator->validateCaptcha($request->get('g-recaptcha-response'))) {
+                //    $form->addError(new FormError($translator->trans('captcha.wrong')));
+                //    throw new ValidatorException('captcha.wrong');
+                // }
 
                 $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
                 $token = $tokenGenerator->generateToken();
@@ -180,10 +174,10 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             try {
-                if (!$captchaValidator->validateCaptcha($request->get('g-recaptcha-response'))) {
-                    $form->addError(new FormError($translator->trans('captcha.wrong')));
-                    throw new ValidatorException('captcha.wrong');
-                }
+                // if (!$captchaValidator->validateCaptcha($request->get('g-recaptcha-response'))) {
+                //    $form->addError(new FormError($translator->trans('captcha.wrong')));
+                //    throw new ValidatorException('captcha.wrong');
+                // }
                 $repository = $this->getDoctrine()->getRepository(User::class);
 
                 /** @var User $user */
@@ -259,5 +253,6 @@ class UserController extends AbstractController
 
         return $this->render('user/password-reset.html.twig', ['form' => $form->createView()]);
     }
+
 
 }

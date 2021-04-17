@@ -1,65 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{{ 'site.name'|trans }}{% endblock %}</title>
+{% extends 'dash.html.twig' %}
 
-    {% block stylesheets %}
-        <link rel="stylesheet" href="/build/app.css">
-    {% endblock %}
-</head>
+{% block content %}
 
-<body>
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="{{ path('homepage') }}">{{ 'site.name'|trans }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    {% if is_granted('ROLE_USER') %}
+        <div align="right">
+        <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.email }}</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+    {% else %}
+        {#<li><a href="{{ path('user_register') }}">{{ 'user.sign-up'|trans }}</a></li>#}
+        <li class="nav-item"><a class="nav-link"
+                                href="{{ path('security_login') }}">{{ 'user.login'|trans }}</a></li>
+        </div>
+    {% endif %}
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        {% block nav %}
-            <ul class="navbar-nav">
-
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                {% if is_granted('ROLE_USER') %}
-                    <li class="nav-item"><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.email }}</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link"
-                                            href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
-                {% else %}
-                    {#<li><a href="{{ path('user_register') }}">{{ 'user.sign-up'|trans }}</a></li>#}
-                    <li class="nav-item"><a class="nav-link"
-                                            href="{{ path('security_login') }}">{{ 'user.login'|trans }}</a></li>
-                {% endif %}
-            </ul>
-        {% endblock %}
-    </div>
-</nav>
-
-<div class="main-content" style="margin-top: 56px;">
-    {% block flashmessages %}
-        {% if app.session.flashbag.peekAll|length > 0 %}
-            {% for type, messages in app.session.flashbag.all %}
-                {% for message in messages %}
-                    <div class="alert alert-dismissible alert-{{ type ? type : '' }}">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                        {{ message|trans({}, domain|default('messages')) }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        {% endif %}
-    {% endblock %}
-    <div style="min-height: 56px"></div>
-    {% block content %}{% endblock %}
-</div>
-
-{% block javascripts %}
-    <script src="/build/app.js"></script>
 {% endblock %}
 
-</body>
-
-</html>
