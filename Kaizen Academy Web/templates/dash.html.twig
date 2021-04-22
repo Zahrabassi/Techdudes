@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- modernizr JS
+        ============================================ -->
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        <!-- favicon
+============================================ -->
+        <!-- modernizr JS
+            ============================================ -->
+
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dashboard/img/favicon.ico') }}">
+        <!-- Google Fonts
+            ============================================ -->
+        <link href="{{ asset('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900') }}" rel="stylesheet">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/bootstrap.min.css') }}">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('/dashboardcss/font-awesome.min.css') }}">
+        <!-- owl.carousel CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('dashboard/css/owl.theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('dashboard/css/owl.transitions.css') }}">
+        <!-- animate CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/animate.css') }}">
+        <!-- normalize CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/normalize.css') }}">
+        <!-- meanmenu icon CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/meanmenu.min.css') }}">
+        <!-- main CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/main.css') }}">
+        <!-- educate icon CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/educate-custon-icon.css') }}">
+        <!-- morrisjs CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/morrisjs/morris.css') }}">
+        <!-- mCustomScrollbar CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
+        <!-- metisMenu CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/metisMenu/metisMenu.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('dashboard/css/metisMenu/metisMenu-vertical.css') }}">
+        <!-- calendar CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/calendar/fullcalendar.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('dashboard/css/calendar/fullcalendar.print.min.css') }}">
+        <!-- style CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/style.css') }}">
+        <!-- responsive CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('dashboard/css/responsive.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('dashboard/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        <!-- jquery
+   ============================================ -->
+        <script src="{{ asset('dashboard/js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <!-- bootstrap JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/bootstrap.min.js') }}"></script>
+        <!-- wow JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/wow.min.js') }}"></script>
+        <!-- price-slider JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/jquery-price-slider.js') }}"></script>
+        <!-- meanmenu JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/jquery.meanmenu.js') }}"></script>
+        <!-- owl.carousel JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/owl.carousel.min.js') }}"></script>
+        <!-- sticky JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/jquery.sticky.js') }}"></script>
+        <!-- scrollUp JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/jquery.scrollUp.min.js') }}"></script>
+        <!-- counterup JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/counterup/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/counterup/waypoints.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/counterup/counterup-active.js') }}"></script>
+        <!-- mCustomScrollbar JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
+        <!-- metisMenu JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/metisMenu/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/metisMenu/metisMenu-active.js') }}"></script>
+        <!-- morrisjs JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/morrisjs/raphael-min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/morrisjs/morris.js') }}"></script>
+        <script src="{{ asset('dashboard/js/morrisjs/morris-active.js') }}"></script>
+        <!-- morrisjs JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/sparkline/jquery.sparkline.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/sparkline/jquery.charts-sparkline.js') }}"></script>
+        <script src="{{ asset('dashboard/js/sparkline/sparkline-active.js') }}"></script>
+        <!-- calendar JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/calendar/moment.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/calendar/fullcalendar.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/calendar/fullcalendar-active.js') }}"></script>
+        <!-- plugins JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/plugins.js') }}"></script>
+        <!-- main JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/main.js') }}"></script>
+        <!-- tawk chat JS
+            ============================================ -->
+        <script src="{{ asset('dashboard/js/tawk-chat.js') }}"></script>
+
+    {% endblock %}
+</head>
+{% block body %}
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Start Left menu area -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <a href="{{ path('homepage') }}"><img class="main-logo" src="dashboard/img/ka_logo.png" alt="kaizen academy" /></a>
+
+            </div>
+
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+                <br><br><br><br><br>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Users</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Users" href="{{ path('user_liste') }}"><span class="mini-sub-pro">All Users</span></a></li>
+
+                            </ul>
+                        </li>
+                        {% endif %}
+
+                        <li>
+                            <ul class="submenu-angle" aria-expanded="false">
+
+
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+
+    <div class="all-content-wrapper">
+    <br><br><br><br><br><br><br>
+    {% block liste %}
+        {% endblock %}
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+
+                {%block content %}
+                {% if is_granted('ROLE_USER') %}
+                <div align="right">
+                    <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link"
+                                            href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                    {% elseif is_granted('ROLE_ADMIN') %}
+                        <div align="right">
+                        <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                        </div>
+                    {% endif %}
+                {%  endblock %}
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="educate-icon educate-nav"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <div class="header-top-menu tabl-d-n">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div></div>
+    <a id="scrollUp" href="#top" style="display: none; position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
+
+{% endblock %}
+
+
+</body>
+</html>
