@@ -1,0 +1,20 @@
+swiftmailer:
+    url: '%env(MAILER_URL)%'
+    spool: { type: 'memory' }
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+
+    #transport : smtp
+    #host: smtp.gmail.com
+    #port: 465
+    #auth_mode: login
+    #    username: kaizenacademysndr@gmail.com
+    #    password: kaizenacademy
+    #    encryption: ssl
+    #    stream_options:
+    #   ssl:
+#            allow_self_signed: true
+#            verify_peer: false
+#            verify_peer_name: false
