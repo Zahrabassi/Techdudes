@@ -1,7 +1,8 @@
 twig:
-    paths: ['%kernel.project_dir%/templates']
+    default_path: '%kernel.project_dir%/templates'
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    form_themes: ['bootstrap_4_layout.html.twig']
+    exception_controller: null
+    form_themes: ['bootstrap_4_horizontal_layout.html.twig']
     globals:
-        locale: '%locale%'
+        cartManager: '@App\Manager\CartManager'

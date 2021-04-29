@@ -29,6 +29,9 @@
     "doctrine/dbal": {
         "version": "v2.6.3"
     },
+    "doctrine/deprecations": {
+        "version": "v0.5.3"
+    },
     "doctrine/doctrine-bundle": {
         "version": "1.6",
         "recipe": {
@@ -83,8 +86,23 @@
     "egulias/email-validator": {
         "version": "2.1.3"
     },
+    "flosch/stripe-bundle": {
+        "version": "2.1.0"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
+    },
+    "friendsofsymfony/ckeditor-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "8eb1cd0962ded6a6d6e1e5a9b6d3e888f9f94ff6"
+        },
+        "files": [
+            "./config/packages/fos_ckeditor.yaml"
+        ]
     },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.33"
@@ -94,6 +112,12 @@
     },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "knplabs/knp-components": {
+        "version": "v3.0.2"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.4.2"
     },
     "laminas/laminas-code": {
         "version": "3.4.1"
@@ -112,6 +136,9 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.2.0"
+    },
+    "openbuildings/swiftmailer-css-inliner": {
+        "version": "0.7.0"
     },
     "phenx/php-font-lib": {
         "version": "0.5.2"
@@ -143,6 +170,9 @@
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
     },
+    "snipe/banbuilder": {
+        "version": "2.3.0"
+    },
     "stof/doctrine-extensions-bundle": {
         "version": "1.2",
         "recipe": {
@@ -152,8 +182,14 @@
             "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
         }
     },
+    "stripe/stripe-php": {
+        "version": "v3.23.0"
+    },
     "swiftmailer/swiftmailer": {
         "version": "v6.0.2"
+    },
+    "symfony/asset": {
+        "version": "v4.4.20"
     },
     "symfony/cache": {
         "version": "v4.0.3"
@@ -172,6 +208,9 @@
             "version": "3.3",
             "ref": "9f94d3ea453cd8a3b95db7f82592d7344fe3a76a"
         }
+    },
+    "symfony/css-selector": {
+        "version": "v4.4.20"
     },
     "symfony/debug": {
         "version": "v4.0.3"
@@ -341,6 +380,18 @@
     "symfony/security-core": {
         "version": "v4.4.19"
     },
+    "symfony/security-csrf": {
+        "version": "v4.4.20"
+    },
+    "symfony/security-guard": {
+        "version": "v4.4.20"
+    },
+    "symfony/security-http": {
+        "version": "v4.4.21"
+    },
+    "symfony/serializer": {
+        "version": "v4.4.20"
+    },
     "symfony/service-contracts": {
         "version": "v1.1.9"
     },
@@ -418,6 +469,9 @@
     },
     "symfony/yaml": {
         "version": "v4.0.3"
+    },
+    "tijsverkoyen/css-to-inline-styles": {
+        "version": "2.2.3"
     },
     "twig/twig": {
         "version": "v2.4.4"

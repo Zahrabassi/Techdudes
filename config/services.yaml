@@ -2,9 +2,13 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    upload_directory : '%kernel.project_dir%/public/uploads'
+    formation_directory: '%kernel.project_dir%/public/pdf'
+    img_directory: '%kernel.project_dir%/public/img'
     app.email_noreply: kaizenacademysndr@gmail.com
     app.recaptcha_key: '%env(RECAPTCHA_KEY)%'
     app.recaptcha_secret: '%env(RECAPTCHA_SECRET)%'
+
 
 services:
     # default configuration for services in *this* file
