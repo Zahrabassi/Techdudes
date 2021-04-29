@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<!-- Mirrored from themeselection.com/demo/chameleon-admin-template/html/ltr/vertical-menu-template/chat-application.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 18 Apr 2021 13:08:07 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Chameleon Admin is a modern Bootstrap 4 webapp &amp; admin dashboard html template with a large number of components, elegant design, clean and organized code.">
+    <meta name="keywords" content="admin template, Chameleon admin template, dashboard template, gradient admin template, responsive admin template, webapp, eCommerce dashboard, analytic dashboard">
+    <meta name="author" content="ThemeSelect">
+    <title>Chat</title>
+    <link rel="apple-touch-icon" href="{{ asset('ChatTemplate/app-assets/images/ico/apple-icon-120.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="https://themeselection.com/demo/chameleon-admin-template/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/vendors/css/vendors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/vendors/css/forms/toggle/switchery.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/plugins/forms/switch.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/core/colors/palette-switch.min.css') }}">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/bootstrap-extended.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/colors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/components.min.css') }}">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/core/menu/menu-types/vertical-menu.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/core/colors/palette-gradient.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/fonts/simple-line-icons/style.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/app-assets/css/pages/chat-application.css') }}">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('ChatTemplate/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+     <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+<body style="padding-top: 0rem; " class="vertical-layout vertical-menu content-left-sidebar chat-application  fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="content-left-sidebar">
+
+
+<!-- BEGIN: Content-->
+<div style="margin-left: 0px;" class="app-content content">
+    <div class="sidebar-left sidebar-fixed">
+        <div class="sidebar"><div class="sidebar-content card d-none d-lg-block">
+                <div class="card-body chat-fixed-search">
+                    <fieldset class="form-group position-relative has-icon-left m-0  w-75 display-inline">
+                        <label for="searchUser"></label><input type="text" class="form-control round" id="searchUser" placeholder="Search user">
+                        <div class="form-control-position">
+                            <i class="ft-search"></i>
+                        </div>
+                    </fieldset>
+                    <span class="float-right  primary font-large-1 cursor-pointer"> <i class="ft-edit"></i> </span>
+                </div>
+                <div id="users-list" class="list-group position-relative">
+                    <div style="padding-top: 109px;" class="users-list-padding media-list">
+                        {% for conversation in conversations %}
+                            <a id="redirect{{ conversation.id }}" onclick="getMessages({{ conversation.id }},{{ conversation.idUser }},'{{ conversation.etat }}')" class="media border-bottom-blue-grey border-bottom-lighten-5 "> <!--border-right-primary  border-right-2-->
+                                <div class="media-left pr-1">
+                                <span class="avatar avatar-md">
+                                    <img class="media-object rounded-circle" src="{{ asset('ChatTemplate/app-assets/images/portrait/small/avatar-s-3.png') }}" alt="Generic placeholder image">
+                                </span>
+                                </div>
+                                <div class="media-body w-100">
+                                    <h6 class="list-group-item-heading font-medium-1 text-bold-700">{{ conversation.sujet }}&nbsp; <i class="ft-circle font-small-2 success"></i></h6>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <p class="font-small-3 text-muted text-bold-500">{{ conversation.date|date("m/d/Y")  }}</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {% if conversation.etat=="Non traitée" %}
+                                                <span class="badge badge-pill badge-danger float-right m-0">Non traitée</span>
+                                            {% elseif conversation.etat=="En cours" %}
+                                                <span class="badge badge-pill badge-info float-right m-0">En cours</span>
+                                            {% elseif conversation.etat=="Traitée" %}
+                                                <span class="badge badge-pill badge-success float-right m-0">Traitée</span>
+                                            {% else %}
+                                                <span class="badge badge-pill badge-danger float-right m-0">Non traitée</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <p class="list-group-item-text text-muted mb-0 lighten-1">{{ conversation.contenu|raw }} </p>
+                                    {% set length = conversation.messages|length %}
+                                    {% set index = 1 %}
+                                    {% for message in conversation.messages %}
+                                        {% if length==index %}
+                                            <p>message : {{ message.message }}</p>
+                                        {% endif %}
+
+
+                                        {% set index = index+1 %}
+                                    {% endfor %}
+                                </div>
+                            </a>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="content-right">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section id="chat-app-window" class="chat-app-window">
+                    <div class="mb-1 secondary text-bold-700">Chat History</div>
+                    <div class="chats">
+
+                        <div id="modifierReclamation" class="row mb-1 secondary text-bold-700" style="position: fixed;width: 82%;justify-content: flex-end;z-index: 1;top: 8px;display: none">
+                            <div class="col-xl-4 col-lg-6 col-12">
+                                <div style="background-color: #ffffffad;" class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="media d-flex">
+                                                <div style="margin-top: -1rem!important;" class="media-body text-left align-self-bottom mt-3">
+                                                    <span class="d-block mb-1 font-medium-1">Etat</span>
+                                                    <div class="row">
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="TypeSelect">
+                                                                <option value="Non traitée">Non traitée</option>
+                                                                <option value="En cours">En cours</option>
+                                                                <option value="Traitée">Traitée</option>
+                                                            </select>
+                                                        </div>
+                                                        <div style="text-align: center" class="col-lg-3">
+                                                            <button onclick="editReclamation()" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div id="chatContainer" class="chats">
+
+
+                            {#<p class="time">25 minutes ago</p>#}
+                        </div>
+                    </div>
+                </section>
+                <section class="chat-app-form">
+                    <form class="chat-app-input d-flex">
+                        <fieldset name="submit" class="col-10 m-0">
+                            <div class="input-group position-relative has-icon-left">
+                                <div class="form-control-position">
+                                    <span id="basic-addon3"><i class="ft-image"></i></span>
+                                </div>
+
+                                    <input id="msgValue" type="text" class="form-control" placeholder="Send message" aria-describedby="button-addon2">
+
+                            </div>
+                        </fieldset>
+                        <fieldset name="submit" class="form-group position-relative has-icon-left col-2 m-0">
+                            <button onclick="addMessage()" type="button" class="btn btn-danger">
+                                <i class="la la-paper-plane-o d-xl-none"></i>
+                                <span class="d-none d-lg-none d-xl-block">Send Message </span>
+                            </button>
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Content-->
+
+<p style="display: none;" id="ClickedReclamation"></p>
+<p style="display: none;" id="ClickedClient"></p>
+
+
+
+
+
+
+<!-- BEGIN: Vendor JS-->
+<script src="{{ asset('ChatTemplate/app-assets/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('ChatTemplate/app-assets/vendors/js/forms/toggle/switchery.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('ChatTemplate/app-assets/js/scripts/forms/switch.min.js') }}" type="text/javascript"></script>
+<!-- BEGIN Vendor JS-->
+
+<!-- BEGIN: Page Vendor JS-->
+<!-- END: Page Vendor JS-->
+
+<!-- BEGIN: Theme JS-->
+<script src="{{ asset('ChatTemplate/app-assets/js/core/app-menu.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('ChatTemplate/app-assets/js/core/app.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('ChatTemplate/app-assets/js/scripts/customizer.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('ChatTemplate/app-assets/vendors/js/jquery.sharrre.js') }}" type="text/javascript"></script>
+<!-- END: Theme JS-->
+
+<!-- BEGIN: Page JS-->
+<script src="{{ asset('ChatTemplate/app-assets/js/scripts/pages/chat-application.js') }}" type="text/javascript"></script>
+<!-- END: Page JS-->
+
+
+<script>
+
+    var isOpen=0;
+    let socket = new WebSocket("ws://localhost:3000");
+
+    socket.onmessage = function(event) {
+        if (isOpen===1){
+            //alert(`[message] Data received from server: ${event.data}`);
+            let json = JSON.parse(event.data);
+            let ClickedReclamation = document.getElementById("ClickedReclamation").value;
+            let ClickedClient = document.getElementById("ClickedClient").value;
+            if ((ClickedReclamation==json.reclamationId)){
+                if (ClickedClient==json.receiverId || ClickedClient==json.senderId){
+                    if (json.senderId=={{ adminId }}){
+                        generateMessage(json.message,"connected")
+                    }else{
+                        generateMessage(json.message,"user")
+                    }
+                    document.getElementById('chat-app-window').scrollTop = 9999999;
+                }else{
+                    console.log("message not for this user")
+                }
+            }else{
+                console.log("message not for this reclamation")
+            }
+
+
+
+
+        }else{
+            alert("received data but no convo open")
+        }
+
+    };
+    $(function() {
+        let idReclamation="{{ app.request.query.get('idReclamation') }}";
+        let idClient="{{ app.request.query.get('idClient') }}";
+        let etat="{{ app.request.query.get('etat') }}";
+        if (idReclamation!==""){
+            getMessages(idReclamation,idClient,etat);
+        }else{
+            console.log("no selected")
+        }
+    })
+
+    function editReclamation() {
+        let idReclamation = document.getElementById('ClickedReclamation').value;
+        let idClient = document.getElementById('ClickedClient').value;
+        let etat = document.getElementById('TypeSelect').value;
+        $.ajax({
+            url: 'reclamation/editEtat/' + idReclamation + '/' + etat,
+            success: function (data) {
+                if (data==="edited"){
+                    console.log('edited')
+                    location.href = "chat?idReclamation="+idReclamation+"&idClient="+idClient+"&etat="+etat;
+                }else{
+                    alert('something went wrong')
+                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Ajax request failed.");
+            }
+        });
+    }
+    function getMessages(idReclamation,idClient,etat) {
+        isOpen=1;
+        document.getElementById('modifierReclamation').style.display = "flex";
+        document.getElementById('TypeSelect').value=etat;
+        document.getElementById('chatContainer').innerHTML='';
+        document.getElementById('ClickedReclamation').value=idReclamation;
+        document.getElementById('ClickedClient').value=idClient;
+        for (var i = 0; i < document.getElementsByName('submit').length; i++) {
+            document.getElementsByName('submit')[i].style.display="block";
+        }
+        $.ajax({
+            url: 'reclamation/getMessages/' + {{ adminId }} + '/' + idReclamation,
+            success: function (messages) {
+                for (var i = 0; i < messages.length; i++) {
+                    if (messages[i].idSend==={{ adminId }}){
+                        generateMessage(messages[i].message, 'connected')
+                    }else{
+                        generateMessage(messages[i].message, 'user');
+                    }
+                }
+                document.getElementById('chat-app-window').scrollTop = 9999999;
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("Ajax request failed.");
+            }
+        });
+    }
+    function generateMessage(msg,type){
+        var str="";
+        if (type==="connected"){
+            str += '<div class="chat connected">';
+            str += '<div class="chat-body">';
+            str += '<div class="chat-content">';
+            str += '<p>'+msg+'</p>';
+            str += '</div>';
+            str += '</div>';
+            str += '</div>';
+        }else{
+            str += '<div class="chat chat-left friend">';
+            str += '<div class="chat-avatar">';
+            str += '<a class="avatar" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="">';
+            str += '<img src="{{ asset('ChatTemplate/app-assets/images/portrait/small/avatar-s-5.png') }}" class="box-shadow-4" alt="avatar" />';
+            str += '</a>';
+            str += '</div>';
+            str += '<div class="chat-body">';
+            str += '<div class="chat-content">';
+            str += '<p>'+msg+'</p>';
+            str += '</div>';
+            str += '</div>';
+            str += '</div>';
+        }
+        $("#chatContainer").append(str);
+
+
+    }
+    function addMessage(){
+        const msg = document.getElementById('msgValue').value;
+        const idReclamation = document.getElementById('ClickedReclamation').value;
+        const idClient = document.getElementById('ClickedClient').value;
+        if (msg===""){
+            console.log("empty msg")
+        }else{
+            var obj = {
+                "senderId":{{ adminId }},
+                "receiverId":idClient,
+                "reclamationId":idReclamation,
+                "type":"text",
+                "message":msg
+            };
+            var json = JSON.stringify(obj);
+            socket.send(json);
+
+            $.ajax({
+                url: 'reclamation/AddMessageAdmin/' + idReclamation + '/' + idClient + '/' + msg,
+                success: function (data) {
+                    console.log(data);
+                    generateMessage(msg,'connected');
+                    document.getElementById('chat-app-window').scrollTop = 9999999;
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("Ajax request failed.");
+                }
+            });
+
+        }
+
+    }
+
+</script>
+
+
+
+</body>
+<!-- END: Body-->
+</html>

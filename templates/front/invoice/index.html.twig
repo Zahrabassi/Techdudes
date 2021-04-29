@@ -1,0 +1,50 @@
+{% extends 'front/layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h2>Purchase Invoice</h2>
+            <h3 class="ml-auto pull-right">Order #{{ orderId }}</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-lg-8">
+                <table id="cart" class="table table-hover table-condensed">
+                    <thead>
+                    <tr>
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Quantity</th>
+                        <th style="width:8%">Price</th>
+                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:10%"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for item in cart_items %}
+                        <tr>
+                            <td><a href="{{ path('formation.detail',{'id': item.id}) }}">{{ item.name }}</a></td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.price }} TND</td>
+                            <td data-th="Subtotal" class="text-center">
+                                {% set var_1 = 0 + item.quantity|number_format(2,'.',',') %}
+                                {% set var_2 = 0 + item.price|number_format(2,'.',',') %}
+                                {{ (var_1 * var_2)|number_format(2,'.',',') }} TND
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">Discount {{ discount }} %</div>
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6"><strong>Total
+                    {{ total }} TND</strong></div>
+        </div>
+        <div class="row">
+            <td><a href="{{ path('home') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>Back to
+                    Home</a>
+        </div>
+    </div>
+{% endblock %}

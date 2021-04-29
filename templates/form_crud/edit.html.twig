@@ -1,0 +1,28 @@
+    {% extends 'dash.html.twig' %}
+
+    {% block title %}Modifier Formation{% endblock %}
+
+    {% block body %}
+        {{ include('header.html.twig') }}
+            <!-- Single pro tab review Start-->
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h1>Modifier Formation</h1>
+
+                            <a href="{{ path('form_crud_index') }}">Retour à la liste</a>
+                            <br>
+                            {{ include('form_crud/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+
+
+                            {{ include('form_crud/_delete_form.html.twig',{'button_label': 'Supprimer'}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ include('footer.html.twig') }}
+
+    {% endblock %}
+

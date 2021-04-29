@@ -1,0 +1,31 @@
+<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+        <div class="sidebar-header">
+            <a href="{{ path('dashboard') }}"><img class="main-logo" src="{{ asset('assets/img/logo/logo.png') }}"
+                                                   alt=""/></a>
+            <strong><a href="{{ path('dashboard') }}"><img src="{{ asset('assets/img/logo/logosn.png') }}"
+                                                           alt=""/></a></strong>
+        </div>
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    <li class="active">
+                        <a class="has-arrow" href="{{ path('dashboard') }}" aria-expanded="false"><span
+                                    class="educate-icon educate-event icon-wrap sub-icon-mg"></span> <span
+                                    class="mini-click-non">Promotion</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a title="Departments List" href="{{ path('promotion.list') }}"><span
+                                            class="mini-sub-pro">Promotion List</span></a>
+                            </li>
+                            <li><a title="Add Departments" href="{{ path('promotion.create') }}"><span
+                                            class="mini-sub-pro">Add Promotion</span></a>
+                            </li>
+                            {# <li><a title="Edit Departments" href="edit-department.html"><span class="mini-sub-pro">Edit Promotion</span></a>
+                            </li> #}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>

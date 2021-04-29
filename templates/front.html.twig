@@ -6,6 +6,7 @@
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dashboard/img/favicon.ico') }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
@@ -69,35 +70,60 @@
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="cours/index.html.twig">
+                                    <a href="{{ path('homepage') }}">
                                         <img src="{{ asset('img/ka_logo.png') }}" alt="">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-7">
                                 <div class="main-menu  d-none d-lg-block">
+
                                     <nav>
                                         <ul id="navigation">
 
-                                            <li><a href="Cours.html">Cours</a></li>
-                                            <li><a href="Formation.html">Formation</a></li>
-                                            <li><a href="Evenement.html">Evenement</a></li>
-                                            <li><a href="Reclamation.html">Reclamation</a></li>
+                                            <li><a href= {{ path('listCour') }}>Cours</a></li>
+                                            <li><a href={{ path('listformation') }}>Formation</a></li>
+                                            <li><a href={{ path('evenements') }}>Evenement</a></li>
+                                            <li><a href={{ path('reclamations') }}>Reclamation</a></li>
+
+                                            {% block usr %}
+                                            {% if is_granted('ROLE_ETUDIANT') %}
+
+                                                <li class="nav-item" ><a class="nav-link" href="{{ path('dash') }}">{{ app.user.name }}</a>
+                                                </li>
+                                                <li class="nav-item"><a class="nav-link"
+                                                                        href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+
+                                            {% elseif is_granted('ROLE_ENSEIGNANT') %}
+
+                                                <li class="nav-item" ><a class="nav-link"  href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                                                </li>
+                                                <li class="nav-item"><a class="nav-link"
+                                                                        href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                                            {% elseif is_granted('ROLE_ADMIN') %}
+
+                                                    <li class="nav-item" ><a class="nav-link"  href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                                                    </li>
+                                                    <li class="nav-item"><a class="nav-link"
+                                                                            href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                                                {% else %}
+                                                    {#<li><a href="{{ path('user_register') }}">{{ 'user.sign-up'|trans }}</a></li>#}
+                                                    <li class="nav-item"><a class="nav-link"
+                                                                            href="{{ path('security_login') }}">{{ 'user.login'|trans }}</a></li>
+
+                                                {% endif %}
+                                                {% endblock %}
+
 
                                         </ul>
+
                                     </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment">
-                                    <div class="phone_num d-none d-xl-block">
-                                        <a href="{{ path('security_login') }}">Login</a>
-                                    </div>
                                     <div class="d-none d-lg-block">
-                                        <a class="boxed-btn3" href="#">Pannier</a>
+                                        <a class="boxed-btn3" href="{{ path('cart') }}">Pannier</a>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
                             </div>

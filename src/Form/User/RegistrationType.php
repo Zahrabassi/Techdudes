@@ -5,12 +5,14 @@ namespace App\Form\User;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
 use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
+use Symfony\Component\Validator\Constraints\Choice;
 
 class RegistrationType extends AbstractType
 {
@@ -21,12 +23,22 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
+            ->add('name')
             ->add('email')
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'user.password.first'],
                 'second_options' => ['label' => 'user.password.second'],
             ])
+            ->add('role',ChoiceType::class,
+                [
+                    'placeholder' => 'Choose an option',
+                    'choices' => ['Enseignant'=> 'ROLE_ENSEIGNANT',
+                        'Etudiant' => 'ROLE_ETUDIANT',
+                        'Admin' => 'ROLE_ADMIN']
+
+                    ])
             ->add('captchaCode', CaptchaType::class, array(
                 'captchaConfig' => 'ExampleCaptchaUserRegistration',
                 'constraints' => [

@@ -1,0 +1,104 @@
+{% extends 'dash.html.twig' %}
+
+{% block title %}Formation index{% endblock %}
+
+{% block body %}
+    {{ include('header.html.twig') }}
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    </div>
+    <div class="product-status mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-status-wrap">
+
+                        <div class="add-product">
+                            <a href="{{ path('form_crud_new') }}">Ajouter formation</a>
+                        </div>
+                        <div class="asset-inner">
+                            <div class="asset-inner">
+                                <h1>liste des formations</h1>
+                                <table class="table" id="tableac">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Img</th>
+                                        <th>Intitule</th>
+                                        <th>Description</th>
+                                        <th>Date_deb</th>
+                                        <th>Id_eval</th>
+                                        <th>Date_fin</th>
+                                        <th>Type</th>
+                                        <th>Prix</th>
+                                        <th>Id_formateur</th>
+                                        <th>Modifier</th>
+                                        <th>Supprimer</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {% for formationn in formations %}
+                                        <tr>
+                                            <td>{{ formationn.id }}</td>
+                                            <td><img src="{{ asset('img/'~formationn.img) }}" alt="" /></td>
+                                            <td>{{ formationn.intitule }}</td>
+                                            <td>{{ formationn.description }}</td>
+                                            <td>{{ formationn.dateDebut ? formationn.dateDebut|date('Y-m-d') : '' }}</td>
+                                            <td>{{ formationn.evaluation.id }}</td>
+                                            <td>{{ formationn.dateFin ? formationn.dateFin|date('Y-m-d') : '' }}</td>
+                                            <td>{{ formationn.type }}</td>
+                                            <td>{{ formationn.prix }}</td>
+                                            <td>{{ formationn.formateur.id }}</td>
+                                            <td>
+                                                <a href="{{ path('form_crud_edit', {'id': formationn.id}) }}"><button data-toggle="tooltip" title="modifier" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i></button></a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('form_crud_delete', {'id': formationn.id}) }}"><button data-toggle="tooltip" title="supprimer" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+
+                                            </td>
+
+                                        </tr>
+                                        <script>
+                                            $(document).ready(function(){
+                                                $('#search').keyup(function(){
+                                                    search_table($(this).val());
+                                                });
+                                                function search_table(value){
+                                                    $('#tableac tbody tr').each(function(){
+                                                        var found = 'false';
+                                                        $(this).each(function(){
+                                                            if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                                            {
+                                                                found = 'true';
+                                                            }
+                                                        });
+                                                        if(found == 'true')
+                                                        {
+                                                            $(this).show();
+
+                                                        }
+                                                        else
+                                                        {
+                                                            $(this).hide();
+
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        </script>
+                                    {% endfor %}
+                                    <input type="text" id="search" name="search" class="form-control" placeholder="Search">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ include('footer.html.twig') }}
+
+{% endblock %}

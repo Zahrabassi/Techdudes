@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('BackTemplate/img/favicon.ico') }}">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/bootstrap.min.css') }}">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/font-awesome.min.css') }}">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/owl.transitions.css') }}">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/animate.css') }}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/normalize.css') }}">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/meanmenu.min.css') }}">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/main.css') }}">
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/educate-custon-icon.css') }}">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/morrisjs/morris.css') }}">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/metisMenu/metisMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/metisMenu/metisMenu-vertical.css') }}">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/calendar/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/calendar/fullcalendar.print.min.css') }}">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/style.css') }}">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/responsive.css') }}">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
+
+<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+        <div class="sidebar-header">
+            <a href="{{ path('dashboard') }}"><img class="main-logo" src="{{ asset('BackTemplate/img/logo/logo.png') }}" alt="" /></a>
+            <strong><a href="{{ path('dashboard') }}"><img src="{{ asset('BackTemplate/img/logo/logosn.png') }}" alt="" /></a></strong>
+        </div>
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="All Users" href="{{ path('user_liste') }}"><span class="mini-sub-pro">All Users</span></a></li>
+
+                    </ul>
+                    <a class="has-arrow" href="{{ path('crud_cour_index') }}"aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">GESTION DES COURES</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+
+                        <a href="{{ path('crud_cour_new') }}">AJOUT COUR</a>
+                        <a href="{{ path('newpdf') }}">AJOUT DEVOIR</a>
+
+                        <li><a href="{{ path('meet') }}"><span class="mini-sub-pro">MEET</span></a></li>
+                    </ul>
+                    <li>
+                        <a class="has-arrow" href="{{ path('form_crud_index') }}"aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">GESTION FORMATIONS</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li> <a href="{{ path('quiz_index') }}"><span class="mini-sub-pro">GESTION DES QUIZ</span></a></li>
+                            <a href="{{ path('questions_index') }}"><span class="mini-sub-pro">GESTION DES QUESTIONS</span></a>
+                            <a href="{{ path('choix_index') }}"><span class="mini-sub-pro">GESTION DES CHOIX</span></a>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a title="Landing Page"  aria-expanded="false">
+                            <span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a  href="{{ path('affichee') }}">liste evenement</a></li>
+                            <li><a class="" href="{{ path('affichepart') }}">liste participant </a></li>
+                        </ul>
+
+                        <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Reclamation</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a href="{{ path('reclamations') }}"><span class="mini-sub-pro">Reclamation</span></a></li>
+                            <li><a href="{{ path('chat') }}"><span class="mini-sub-pro">Chat</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>
+<!-- End Left menu area -->
+
+
+
+<!-- Start Welcome area -->
+<div class="all-content-wrapper">
+
+
+    {% block body %}
+
+    {% endblock %}
+
+</div>
+
+
+
+<!-- jquery
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/vendor/jquery-1.12.4.min.js') }}"></script>
+<!-- bootstrap JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/bootstrap.min.js') }}"></script>
+<!-- wow JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/wow.min.js') }}"></script>
+<!-- price-slider JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/jquery-price-slider.js') }}"></script>
+<!-- meanmenu JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/jquery.meanmenu.js') }}"></script>
+<!-- owl.carousel JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/owl.carousel.min.js') }}"></script>
+<!-- sticky JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/jquery.sticky.js') }}"></script>
+<!-- scrollUp JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/jquery.scrollUp.min.js') }}"></script>
+<!-- counterup JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/counterup/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/counterup/waypoints.min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/counterup/counterup-active.js') }}"></script>
+<!-- mCustomScrollbar JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
+<!-- metisMenu JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/metisMenu/metisMenu.min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/metisMenu/metisMenu-active.js') }}"></script>
+<!-- morrisjs JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/morrisjs/raphael-min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/morrisjs/morris.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/morrisjs/morris-active.js') }}"></script>
+<!-- morrisjs JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/sparkline/jquery.charts-sparkline.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/sparkline/sparkline-active.js') }}"></script>
+<!-- calendar JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/calendar/moment.min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/calendar/fullcalendar.min.js') }}"></script>
+<script src="{{ asset('BackTemplate/js/calendar/fullcalendar-active.js') }}"></script>
+<!-- plugins JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/plugins.js') }}"></script>
+<!-- main JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/main.js') }}"></script>
+<!-- tawk chat JS
+    ============================================ -->
+<script src="{{ asset('BackTemplate/js/tawk-chat.js') }}"></script>
+{% block javascripts %}
+{% endblock %}
+
+</body>
+</html>

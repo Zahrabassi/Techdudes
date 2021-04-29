@@ -1,0 +1,42 @@
+{% extends 'dash.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+        {{ include('header.html.twig') }}
+<div class="breadcome-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcome-list single-page-breadcome">
+    <h1>Quiz</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ quiz.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ quiz.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ quiz.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('quiz_index') }}">back to list</a>
+
+    <a href="{{ path('quiz_edit', {'id': quiz.id}) }}">edit</a>
+
+    {{ include('quiz/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {{ include('footer.html.twig') }}
+{% endblock %}

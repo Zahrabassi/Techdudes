@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: giorgiopagnoni
- * Date: 12/04/17
- * Time: 10:12
- */
+
 
 namespace App\Validator\Constraints;
 

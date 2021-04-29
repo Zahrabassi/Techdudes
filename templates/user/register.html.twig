@@ -1,6 +1,6 @@
 {% extends 'front.html.twig' %}
 {% block body %}
-<img align="center" src="{{ asset('img/ka_logo.png') }}" alt="">
+<a href="{{ path('homepage') }}"><img class="main-logo" src="{{ asset('img/ka_logo.png') }}" alt="kaizen academy" /></a>
 {% block slider %}
 {% endblock %}
 {% block content %}
@@ -12,8 +12,10 @@
                 {{ form_start(form) }}
                 {{ form_errors(form) }}
 
+                {{ form_row(form.name) }}
                 {{ form_row(form.email) }}
                 {{ form_row(form.password) }}
+                {{ form_row(form.role) }}
                 {{ form_row(form.captchaCode) }}
 
 
@@ -28,8 +30,4 @@
     </div>
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script src='//www.google.com/recaptcha/api.js?hl={{ locale }}'></script>
-{% endblock %}
 {% endblock %}

@@ -11,7 +11,7 @@
         ============================================ -->
 
     <title>{% block title %}Welcome!{% endblock %}</title>
-    {# Run `composer require symfony/webpack-encore-bundle`
+    {# Run composer require symfony/webpack-encore-bundle
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
         <!-- favicon
@@ -137,7 +137,6 @@
 
     {% endblock %}
 </head>
-
 {% block body %}
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -146,86 +145,56 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="dashboard/img/ka_logo.png" alt="" /></a>
-                <strong><a href="index.html"><img src="dashboard/img/logo/logosn.png" alt="" /></a></strong>
+                <a href="{{ path('homepage') }}"><img class="main-logo" src="dashboard/img/ka_logo.png" alt="kaizen academy" /></a>
 
             </div>
+
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
-                        <li class="active">
-                            <a class="has-arrow" href="index.html">
+                        <br><br><br><br><br>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a title="All Users" href="{{ path('user_liste') }}"><span class="mini-sub-pro">All Users</span></a></li>
 
+                        </ul>
+                        <a class="has-arrow" href="{{ path('crud_cour_index') }}"aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">GESTION DES COURES</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
 
-                            </a>
+                            <a href="{{ path('crud_cour_new') }}">AJOUT COUR</a>
+                            <a href="{{ path('newpdf') }}">AJOUT DEVOIR</a>
+
+                            <li><a href="{{ path('meet') }}"><span class="mini-sub-pro">MEET</span></a></li>
+                        </ul>
+
+                        <a class="has-arrow" href="{{ path('form_crud_index') }}"aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">GESTION DES FORMATIONS</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li> <a href="{{ path('quiz_index') }}"><span class="mini-sub-pro">GESTION DES QUIZ</span></a></li>
+                            <a href="{{ path('questions_index') }}"><span class="mini-sub-pro">GESTION DES QUESTIONS</span></a>
+                            <a href="{{ path('choix_index') }}"><span class="mini-sub-pro">GESTION DES CHOIX</span></a>
+                        </ul>
 
                         </li>
                         <li>
-                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
+                            <a title="Landing Page"  aria-expanded="false">
+                                <span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a></li>
-                                <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Professor</span></a></li>
-                                <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a></li>
-                                <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>
+                                <li><a  href="{{ path('affichee') }}">liste evenement</a></li>
+                                <li><a class="" href="{{ path('affichepart') }}">liste participant </a></li>
                             </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span>
-                                <span class="mini-click-non">Students</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">All Students</span></a></li>
-                                <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Add Student</span></a></li>
-                                <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Edit Student</span></a></li>
-                                <li><a title="Students Profile" href="student-profile.html"><span class="mini-sub-pro">Student Profile</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">All Courses</span></a></li>
-                                <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Add Course</span></a></li>
-                                <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Course</span></a></li>
+                            <a title="Landing Page"  aria-expanded="false">
 
+                                <span  aria-hidden="true"></span> <span class="mini-click-non">Reclamation</span></a>
 
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Library</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Library" href="library-assets.html"><span class="mini-sub-pro">Library Assets</span></a></li>
-                                <li><a title="Add Library" href="add-library-assets.html"><span class="mini-sub-pro">Add Library Asset</span></a></li>
-                                <li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Edit Library Asset</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Departments</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Departments List" href="departments.html"><span class="mini-sub-pro">Departments List</span></a></li>
-                                <li><a title="Add Departments" href="add-department.html"><span class="mini-sub-pro">Add Departments</span></a></li>
-                                <li><a title="Edit Departments" href="edit-department.html"><span class="mini-sub-pro">Edit Departments</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span class="educate-icon educate-message icon-wrap"></span> <span class="mini-click-non">Mailbox</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Inbox" href="mailbox.html"><span class="mini-sub-pro">Inbox</span></a></li>
-                                <li><a title="View Mail" href="mailbox-view.html"><span class="mini-sub-pro">View Mail</span></a></li>
-                                <li><a title="Compose Mail" href="mailbox-compose.html"><span class="mini-sub-pro">Compose Mail</span></a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <ul class="submenu-angle" aria-expanded="false">
-
-
-
+                                <li><a href="{{ path('reclamations') }}"><span class="mini-sub-pro">Reclamation</span></a></li>
+                                <li><a href="{{ path('chat') }}"><span class="mini-sub-pro">Chat</span></a></li>
                             </ul>
                         </li>
 
                     </ul>
+
+                    {% endif %}
                 </nav>
             </div>
         </nav>
@@ -234,37 +203,64 @@
     <!-- Start Welcome area -->
 
     <div class="all-content-wrapper">
-        </div>
-        <div class="header-advance-area">
-            <div class="header-top-area">
-                {%block content %}
-                {%  endblock %}
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="header-top-wraper">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                <i class="educate-icon educate-nav"></i>
-                                            </button>
-                                        </div>
+        <br><br><br><br><br><br><br>
+        {% block liste %}
+        {% endblock %}
+    </div>
+    <div class="header-advance-area">
+        <div class="header-top-area">
+
+            {%block content %}
+                {% if is_granted('ROLE_ETUDIANT') %}
+                    <div align="right">
+                        <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                    </div>
+                {% elseif is_granted('ROLE_ENSEIGNANT') %}
+                    <div align="right">
+                        <li class="nav-item" ><a class="nav-link"  href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                    </div>
+                {% elseif is_granted('ROLE_ADMIN') %}
+                    <div align="right">
+                        <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                    </div>
+                {% endif %}
+            {%  endblock %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="header-top-wraper">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                    <div class="menu-switcher-pro">
+                                        <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                            <i class="educate-icon educate-nav"></i>
+                                        </button>
                                     </div>
-                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                        <div class="header-top-menu tabl-d-n">
-                                        </div>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                    <div class="header-top-menu tabl-d-n">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div></div></div>
+            </div>
+        </div></div></div>
     <a id="scrollUp" href="#top" style="display: none; position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
 
-{% endblock %}
 
 
 </body>
 </html>
+
+{% endblock %}

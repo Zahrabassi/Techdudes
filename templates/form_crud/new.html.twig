@@ -1,0 +1,27 @@
+{% extends 'dash.html.twig' %}
+
+{% block title %}Ajouter Formation{% endblock %}
+
+{% block body %}
+{{ include('header.html.twig') }}
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+                    <div class="asset-inner">
+                        <div class="asset-inner">
+                            <h1>Creer une nouvelle formation</h1>
+                        {{ include('form_crud/_form.html.twig') }}
+
+                        <a href="{{ path('form_crud_index') }}">Retour à la liste</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include('footer.html.twig') }}
+
+{% endblock %}

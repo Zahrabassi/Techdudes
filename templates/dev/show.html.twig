@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devoir{% endblock %}
+
+{% block body %}
+    <h1>Devoir</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ devoir.id }}</td>
+            </tr>
+            <tr>
+                <th>NomDevoir</th>
+                <td>{{ devoir.nomDevoir }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ devoir.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('dev_index') }}">back to list</a>
+
+    <a href="{{ path('dev_edit', {'id': devoir.id}) }}">edit</a>
+
+    {{ include('dev/_delete_form.html.twig') }}
+{% endblock %}

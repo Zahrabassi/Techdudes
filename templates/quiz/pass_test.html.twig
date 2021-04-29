@@ -1,0 +1,274 @@
+{% extends 'front.html.twig' %}
+
+{% block body %}
+<div class="wrapper">
+
+        <div class="text-center pb-4">
+            <div class="h5 font-weight-bold">Il vous reste  <span id="time"> {{ 5*nbrQuestion }} </span> seconds.
+            </div>
+        </div>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+    <div class="pt-4">
+        <form action="{{ path('pass_test', { id : quiz.id }) }}" method="post">
+   {% for ques in quiz.questions %}
+       <div class="h4 font-weight-bold">{{ ques.question}} </div>
+
+       {% for choi in ques.choices %}
+           <div class="form-check">
+               <label class="form-check-label" for=" {{ choi.id }}">
+                   <input class="form-check-input" type="radio" name="{{ ques.id }}" id="{{ choi.choice }}" value="{{ ques.id }}-{{ choi.id }}">
+                   {{ choi.choice }}
+               </label>
+           </div>
+       {% endfor %}
+
+   {% endfor %}
+            <div class="d-flex justify-content-end pt-2">
+            <input type="submit" value="valider" class="btn btn-primary">
+                <span class="fas fa-arrow-right"></span>
+            </div>
+        </form>
+    </div>
+
+</div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif
+        }
+
+        body {
+            background: teal
+        }
+
+        .wrapper {
+            max-width: 600px;
+            margin: 80px auto 50px;
+            padding: 30px;
+            border-radius: 20px;
+            background: #c0e2df;
+            position: relative;
+            min-height: 400px;
+            overflow: hidden
+        }
+
+        .wrapper .wrap {
+            width: 500px;
+            position: absolute;
+            left: 50px;
+            transition: 0.6s
+        }
+
+        #q2,
+        #q3 {
+            left: 650px
+        }
+
+        .h4 {
+            margin: 0
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            cursor: pointer
+        }
+
+        .options {
+            position: relative;
+            padding-left: 30px
+        }
+
+        .options input {
+            opacity: 0
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            height: 20px;
+            width: 20px;
+            background-color: #c0e2df;
+            border: 2px solid #444;
+            border-radius: 50%
+        }
+
+        .options input:checked~.checkmark:after {
+            display: block
+        }
+
+        .options .checkmark:after {
+            content: "";
+            width: 9px;
+            height: 9px;
+            display: block;
+            background: white;
+            position: absolute;
+            top: 51%;
+            left: 51%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 300ms ease-in-out 0s
+        }
+
+        .options input[type="radio"]:checked~.checkmark {
+            background: #590995;
+            border: 2px solid #590995;
+            transition: 300ms ease-in-out 0s
+        }
+
+        .options input[type="radio"]:checked~.checkmark:after {
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+        .btn.btn-primary {
+            background-color: rgb(63, 139, 139);
+            border: 1px solid rgb(63, 139, 139)
+        }
+
+        .btn {
+            background-color: inherit;
+            border: 1px solid rgb(63, 139, 139);
+            border-radius: 20px
+        }
+
+        .btn:focus {
+            box-shadow: none
+        }
+
+        .btn:hover {
+            background-color: teal;
+            color: #fff
+        }
+
+        .fa-arrow-right,
+        .fa-arrow-left {
+            transition: 0.2s ease-in all
+        }
+
+        .btn.btn-primary:hover .fa-arrow-right {
+            transform: translate(8px)
+        }
+
+        .btn.btn-primary:hover .fa-arrow-left {
+            transform: translate(-8px)
+        }
+
+        @media(max-width: 767px) {
+            .wrapper {
+                margin: 30px 10px;
+                height: 420px
+            }
+
+            .wrapper .wrap {
+                width: 280px;
+                left: 15px
+            }
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 28px;
+            background-color: inherit
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #590995;
+            -webkit-transition: .4s;
+            transition: .4s
+        }
+
+        input:checked+.slider {
+            background-color: #000
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(30px);
+            background-color: #fff
+        }
+
+        .slider.round {
+            border-radius: 34px
+        }
+
+        .slider.round:before {
+            border-radius: 50%
+        }
+
+        .dark-theme {
+            background-color: #222
+        }
+    </style>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        window.onblur = function() {
+            window.location.href ='{{ path('result') }}';
+        };
+
+
+        function displayTime(time, node) {
+            if(time < 1) {
+                window.location.href="{{ path('expired',{id: quiz.id}) }}";
+            } else {
+                node.textContent = time;
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function(event){
+            node = document.getElementById("time");
+            var time = 5 * {{ nbrQuestion }};
+            setInterval(function(){time -= 1; displayTime(time, node);}, 1000);
+        });
+    </script>
+{% endblock %}
+
+

@@ -12,6 +12,10 @@ use App\Security\LoginFormAuthenticator;
 use App\Service\CaptchaValidator;
 use App\Service\Mailer;
 use App\Service\TokenGenerator;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
@@ -116,7 +120,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/edit", name="edit")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("has_role('ROLE_ENSEIGNANT','ROLE_ETUDIANT')")
      * @param $request Request
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
@@ -254,5 +258,54 @@ class UserController extends AbstractController
         return $this->render('user/password-reset.html.twig', ['form' => $form->createView()]);
     }
 
+    /**
+     * @Route ("/liste",name="liste")
+     * @Security("has_role('ROLE_ADMIN')")
+     * @param EntityManagerInterface $userManager
+     * @return Response
+     */
+    public function getUsers(EntityManagerInterface $userManager)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('App:User')
+            ->findAll();
+        return $this->render('admin/show.html.twig', ['users' => $users]);
+    }
+    /**
+     * @Route("/pList", name="pList")
+     */
+    public function List()
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('isRemoteEnabled',true);
+        $pdfOptions->set('defaultFont', 'Arial');
 
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        $r=$this->getDoctrine()->getRepository(User::class);
+        $users=$r->findAll();
+
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('admin/listepdf.html.twig',
+            ['users'=>$users,
+            ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
+        ]);
+
+
+    }
 }

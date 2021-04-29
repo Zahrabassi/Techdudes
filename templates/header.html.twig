@@ -1,0 +1,373 @@
+{% extends 'dash.html.twig' %}
+
+{% block body %}
+
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Start Left menu area -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <a href="index.html"><img class="main-logo" src="img/ka_logo.png" alt=""></a>
+                <strong><a href="index.html"><img src="img/ka_logo.png" alt=""></a></strong>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar mCustomScrollbar _mCS_1 mCS-autoHide" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-light-1 mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                        <nav class="sidebar-nav left-sidebar-menu-pro">
+                            <ul class="metismenu" id="menu1">
+                                <li class="active">
+                                    <a class="has-arrow" href="all-courses.html" aria-expanded="true"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Formations</span></a>
+                                    <ul class="submenu-angle collapse show" aria-expanded="false">
+                                        <li><a title="All Library" href="{{ path('form_crud_index') }}"><span class="mini-sub-pro">Liste des formations</span></a></li>
+                                        <li><a title="All Library" href="{{ path('quiz_index') }}"><span class="mini-sub-pro">Liste des Quiz</span></a></li>
+
+                                        <li><a title="All Library" href="{{ path('questions_index') }}"><span class="mini-sub-pro">Liste des questions</span></a></li>
+                                        <li><a title="All Library" href="{{ path('choix_index') }}"><span class="mini-sub-pro">Liste des choix</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light-1 mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 365px; max-height: 570px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+        </nav>
+    </div>
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="index.html"><img class="main-logo" src="img/ka_logo.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="educate-icon educate-nav"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                            </ul>
+
+                                                <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-menu"></i></a>
+
+                                                    <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
+                                                        <div class="tab-content custom-bdr-nt">
+                                                            <div id="Notes" class="tab-pane fade in active">
+                                                                <div class="notes-area-wrap">
+                                                                    <div class="note-heading-indicate">
+                                                                        <h2><i class="fa fa-comments-o"></i> Latest Notes</h2>
+                                                                        <p>You have 10 new message.</p>
+                                                                    </div>
+                                                                    <div class="notes-list-area notes-menu-scrollbar mCustomScrollbar _mCS_4 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible;"><div id="mCSB_4" class="mCustomScrollBox mCS-light-1 mCSB_vertical mCSB_outside" tabindex="0" style="max-height: 315px;"><div id="mCSB_4_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                                                                                <ul class="notes-menu-list">
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/4.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/1.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/2.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/3.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/4.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/1.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/2.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/1.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/2.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#">
+                                                                                            <div class="notes-list-flow">
+                                                                                                <div class="notes-img">
+                                                                                                    <img src="img/contact/3.jpg" alt="" class="mCS_img_loaded">
+                                                                                                </div>
+                                                                                                <div class="notes-content">
+                                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div></div><div id="mCSB_4_scrollbar_vertical" class="mCSB_scrollTools mCSB_4_scrollbar mCS-light-1 mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_4_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="Projects" class="tab-pane fade">
+                                                                <div class="projects-settings-wrap">
+                                                                    <div class="note-heading-indicate">
+                                                                        <h2><i class="fa fa-cube"></i> Latest projects</h2>
+                                                                        <p> You have 20 projects. 5 not completed.</p>
+                                                                    </div>
+                                                                    <div class="project-st-list-area project-st-menu-scrollbar mCustomScrollbar _mCS_5 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible;"><div id="mCSB_5" class="mCustomScrollBox mCS-light-1 mCSB_vertical mCSB_outside" tabindex="0" style="max-height: 315px;"><div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                                                                                <ul class="projects-st-menu-list">
+                                                                                </ul>
+                                                                            </div></div><div id="mCSB_5_scrollbar_vertical" class="mCSB_scrollTools mCSB_5_scrollbar mCS-light-1 mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_5_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="Settings" class="tab-pane fade">
+                                                                <div class="setting-panel-area">
+                                                                    <div class="note-heading-indicate">
+                                                                        <h2><i class="fa fa-gears"></i> Settings Panel</h2>
+                                                                        <p> You have 20 Settings. 5 not completed.</p>
+                                                                    </div>
+                                                                    <ul class="setting-panel-list">
+                                                                        <li>
+                                                                            <div class="checkbox-setting-pro">
+                                                                                <div class="checkbox-title-pro">
+                                                                                    <h2>Show notifications</h2>
+                                                                                    <div class="ts-custom-check">
+                                                                                        <div class="onoffswitch">
+                                                                                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
+                                                                                            <label class="onoffswitch-label" for="example">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="checkbox-setting-pro">
+                                                                                <div class="checkbox-title-pro">
+                                                                                    <h2>Disable Chat</h2>
+                                                                                    <div class="ts-custom-check">
+                                                                                        <div class="onoffswitch">
+                                                                                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
+                                                                                            <label class="onoffswitch-label" for="example3">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="checkbox-setting-pro">
+                                                                                <div class="checkbox-title-pro">
+                                                                                    <h2>Enable history</h2>
+                                                                                    <div class="ts-custom-check">
+                                                                                        <div class="onoffswitch">
+                                                                                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
+                                                                                            <label class="onoffswitch-label" for="example4">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="checkbox-setting-pro">
+                                                                                <div class="checkbox-title-pro">
+                                                                                    <h2>Show charts</h2>
+                                                                                    <div class="ts-custom-check">
+                                                                                        <div class="onoffswitch">
+                                                                                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
+                                                                                            <label class="onoffswitch-label" for="example7">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="checkbox-setting-pro">
+                                                                                <div class="checkbox-title-pro">
+                                                                                    <h2>Update everyday</h2>
+                                                                                    <div class="ts-custom-check">
+                                                                                        <div class="onoffswitch">
+                                                                                            <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example2">
+                                                                                            <label class="onoffswitch-label" for="example2">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="checkbox-setting-pro">
+                                                                                <div class="checkbox-title-pro">
+                                                                                    <h2>Global search</h2>
+                                                                                    <div class="ts-custom-check">
+                                                                                        <div class="onoffswitch">
+                                                                                            <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example6">
+                                                                                            <label class="onoffswitch-label" for="example6">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="checkbox-setting-pro">
+                                                                                <div class="checkbox-title-pro">
+                                                                                    <h2>Offline users</h2>
+                                                                                    <div class="ts-custom-check">
+                                                                                        <div class="onoffswitch">
+                                                                                            <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
+                                                                                            <label class="onoffswitch-label" for="example5">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

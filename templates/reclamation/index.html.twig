@@ -1,0 +1,342 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Reclamation{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/data-table/bootstrap-table.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/data-table/bootstrap-editable.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackTemplate/css/chatbubble.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+    <!-- Static Table Start -->
+    <div class="data-table-area mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sparkline13-list">
+                        <div class="sparkline13-hd">
+                            <div style="margin-bottom: 20px;" class="row">
+                                <div class="col-lg-6">
+                                    <div class="main-sparkline13-hd">
+                                        <h1>Liste des reclamations</h1>
+                                    </div>
+                                </div>
+                                <div style="text-align: end;" class="col-lg-6">
+                                    <a class="btn btn-primary" href="{{ path('addReclamation') }}">Ajouter une Reclamation</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="sparkline13-graph">
+                            <div class="datatable-dashv1-list custom-datatable-overright">
+                                <div id="toolbar">
+                                    <input onkeyup="searchReclamation()" class="form-control" id="searchInput" type="text" placeholder="search">
+                                </div>
+                                    <table id="table" data-toggle="table" data-pagination="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                    <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="id">Sujet</th>
+                                        <th data-field="name" data-editable="true">Type</th>
+                                        <th data-field="email" data-editable="true">Contenu</th>
+                                        <th data-field="phone" data-editable="true">date</th>
+                                        <th data-field="action">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tablebody">
+                                    {% for reclamation in reclamations %}
+                                        <tr id="reclamation_{{ reclamation.id }}">
+                                            <td></td>
+                                            <td>{{ reclamation.sujet }}</td>
+                                            <td>{{ reclamation.type }}</td>
+                                            <td>{{ reclamation.contenu|raw  }}</td>
+                                            <td>{{ reclamation.date|date("m/d/Y") }} </td>
+                                            <td>
+                                                <button onclick="displayChat({{ reclamation.id }})" style="color: white" class="btn btn-primary">
+                                                    <i class="fa fa-envelope"></i>
+                                                </button>
+                                                <a style="border-color: slategray" href="{{ path('update_Reclamation',{'idReclamation':reclamation.id}) }}" class="btn btn-light">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+
+                                                <button onclick="verifyDelete({{ reclamation.id }})" style="color: white" class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="body">
+        <div style="padding: 3px;" id="chat-circle" class="btn btn-raised">
+            <div id="chat-overlay">
+
+            </div>
+            <img style="border-radius: 50%;" src="{{ asset('BackTemplate/img/contact/1.jpg') }}" alt="">
+        </div>
+
+        <div class="chat-box">
+            <div class="chat-box-header">
+                Administrateur
+                <span class="chat-box-toggle"><i class="fa fa-close"></i></span>
+            </div>
+            <div class="chat-box-body">
+                <div class="chat-box-overlay">
+                </div>
+                <div id="chat-logs" class="chat-logs">
+
+                </div>
+            </div>
+            <div class="chat-input">
+                <form>
+                    <input type="text" id="chat-input" placeholder="Send a message..." />
+                    <button type="submit" class="chat-submit" id="chat-submit"><i class="fa fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <p style="display: none;" id="clickedReclamation"></p>
+    <!-- Static Table End -->
+{% endblock %}
+
+
+{% block javascripts%}
+    <script src="{{ asset('BackTemplate/js/data-table/bootstrap-table.js') }}"></script>
+    <script src="{{ asset('BackTemplate/js/data-table/tableExport.js') }}"></script>
+    <script src="{{ asset('BackTemplate/js/data-table/data-table-active.js') }}"></script>
+    <script src="{{ asset('BackTemplate/js/data-table/bootstrap-table-editable.js') }}"></script>
+    <script src="{{ asset('BackTemplate/js/data-table/bootstrap-editable.js') }}"></script>
+    <script src="{{ asset('BackTemplate/js/data-table/bootstrap-table-resizable.js') }}"></script>
+    <script src="{{ asset('BackTemplate/js/data-table/colResizable-1.5.source.js') }}"></script>
+    <script src="{{ asset('BackTemplate/js/data-table/bootstrap-table-export.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script>
+        function verifyDelete(id) {
+            var resultat = confirm("Voulez vous supprimer cette reclamation d`une facon definitive!");
+            if (resultat == true) {
+                location.href = "/maki/public/index.php/reclamation/Delete/"+id;
+            }
+        }
+    </script>
+
+
+
+    {# Chat Scripts #}
+    <script >
+        var isOpen=0
+        var INDEX = 0;
+        var adminId={{ adminId }};
+        var connectedId={{ connectedId }};
+        let socket = new WebSocket("ws://localhost:3000");
+
+
+        socket.onmessage = function(event) {
+            if (isOpen===1){
+                //alert(`[message] Data received from server: ${event.data}`);
+                let json = JSON.parse(event.data);
+                let ClickedReclamation = document.getElementById("clickedReclamation").value;
+                if ((ClickedReclamation==json.reclamationId)){
+                    if (connectedId===json.receiverId || connectedId===json.senderId){
+                        if (json.senderId===connectedId){
+                            generate_message(json.message,"self")
+                        }else{
+                            generate_message(json.message,"user")
+                        }
+                    }else{
+                        console.log("message not for this user")
+                    }
+                }else{
+                    console.log("message not for this reclamation")
+                }
+            }else{
+                alert("no active convo")
+            }
+
+        };
+
+
+
+
+
+
+
+        function displayChat(idReclamation) {
+            isOpen=1;
+            INDEX=0;
+            document.getElementById('clickedReclamation').value=idReclamation;
+            $("#body").hide();
+            document.getElementById("chat-logs").innerHTML = '';
+            $("#body").show("slow");
+
+            $("#chat-circle").toggle('scale');
+            $(".chat-box").toggle('scale');
+            $.ajax({
+                url: 'getMessages/' + adminId + '/' + idReclamation,
+                success: function (messages) {
+                    for (var i = 0; i < messages.length; i++) {
+                        if (messages[i].idSend=={{ connectedId }}){
+                            generate_message(messages[i].message, 'self')
+                        }else{
+                            generate_message(messages[i].message, 'user');
+                        }
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("Ajax request failed.");
+                }
+            });
+        }
+
+        function generate_message(msg, type) {
+            INDEX++;
+            var avatar="/GestUser/public/BackTemplate/img/contact/";
+            if (type=="self"){
+                {#avatar+="{{ connected.imageName }}";#}
+                avatar+="1.jpg"
+            }else{
+                avatar+="1.jpg"
+            }
+
+            var str="";
+            str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg "+type+"\">";
+            if (type==="user"){
+                str += "          <span class=\"msg-avatar\">";
+                str += "            <img src='"+avatar+"'>";
+                str += "          <\/span>";
+            }
+
+
+            str += "          <div class=\"cm-msg-text\">";
+            str += msg;
+            str += "          <\/div>";
+            str += "        <\/div>";
+            $(".chat-logs").append(str);
+            $("#cm-msg-"+INDEX).hide().fadeIn(300);
+            if(type == 'self'){
+                $("#chat-input").val('');
+            }
+            $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);
+        }
+
+
+        $(function() {
+            $("#body").hide();
+
+            $("#chat-submit").click(function(e) {
+                e.preventDefault();
+                var msg = $("#chat-input").val();
+                if(msg.trim() == ''){
+                    return false;
+                }
+                //let IdFriend=document.getElementById("idFriend").value;
+                // let IdFriend=14;
+                PersistMessage(adminId,msg)
+
+
+                /*setTimeout(function() {
+                  generate_message(msg, 'user');
+                }, 1000)*/
+
+            })
+
+
+            function PersistMessage(adminId,msg) {
+                var idReclamation = document.getElementById('clickedReclamation').value;
+                //generate_message(msg, 'self');
+                var obj = {
+                    "senderId":{{ connectedId }},
+                    "receiverId":{{ adminId }},
+                    "reclamationId":idReclamation,
+                    "type":"text",
+                    "message":msg
+                };
+                var jsonString = JSON.stringify(obj);
+                socket.send(jsonString);
+                $.ajax({
+                    url: 'AddMessage/' + idReclamation + '/' + adminId + '/' + msg,
+                    success: function (data) {
+                        console.log(data);
+                        generate_message(msg, 'self');
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log("Ajax request failed.");
+                    }
+                });
+            }
+
+
+            $(document).delegate(".chat-btn", "click", function() {
+                var value = $(this).attr("chat-value");
+                var name = $(this).html();
+                $("#chat-input").attr("disabled", false);
+                generate_message(name, 'self');
+            })
+
+            $("#chat-circle").click(function() {
+                $("#chat-circle").toggle('scale');
+                $(".chat-box").toggle('scale');
+            })
+
+            $(".chat-box-toggle").click(function() {
+                $("#chat-circle").toggle('scale');
+                $(".chat-box").toggle('scale');
+            })
+
+        })
+    </script>
+
+    <script>
+        function searchReclamation() {
+            let searchString = document.getElementById('searchInput').value;
+            var url = "";
+            if (searchString === ""){
+                url = 'searchReclamation/' + 'vide';
+            }else{
+                url = 'searchReclamation/' + searchString;
+            }
+            $.ajax({
+                url: url,
+                success: function (reclamations) {
+
+                    document.getElementById('tablebody').innerHTML = ""
+
+                    for (var j = 0; j < reclamations.length; j++) {
+                        persistReclamation(reclamations[j]);
+                    }
+
+
+                    console.log(reclamations);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("Ajax search failed.");
+                }
+            });
+
+        }
+
+        function persistReclamation(reclamation) {
+            const unixTimestamp = reclamation.date.timestamp
+            const milliseconds = unixTimestamp * 1000
+            const dateObject = new Date(milliseconds)
+            const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
+            $("#tablebody").append(
+                '<tr id="reclamation_'+reclamation.id+'"><td></td><td>'+reclamation.sujet+'</td><td>'+reclamation.type+'</td><td>'+reclamation.contenu+'</td><td>'+humanDateFormat+' </td><td><button onclick="displayChat('+reclamation.id+')" style="color: white" class="btn btn-primary"> <i class="fa fa-envelope"></i></button> <a style="border-color: slategray" href="/maki/public/index.php/reclamation/Update/'+reclamation.id+'" class="btn btn-light"><i class="fa fa-edit"></i></a><button onclick="verifyDelete('+reclamation.id+')" style="color: white" class="btn btn-danger"><i class="fa fa-trash"></i></button></td></tr>'
+            );
+        }
+    </script>
+{% endblock %}

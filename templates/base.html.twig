@@ -4,10 +4,16 @@
 
     {% if is_granted('ROLE_USER') %}
         <div align="right">
-        <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.email }}</a>
+        <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.name }}</a>
         </li>
         <li class="nav-item"><a class="nav-link"
                                 href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+            {% elseif is_granted('ROLE_ADMIN') %}
+                <div align="right">
+                <li class="nav-item" ><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
     {% else %}
         {#<li><a href="{{ path('user_register') }}">{{ 'user.sign-up'|trans }}</a></li>#}
         <li class="nav-item"><a class="nav-link"

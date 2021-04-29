@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}KAIZEN ACADEMY{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/themify-icons.cs') }}s">
+        <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/gijgo.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {#{{ encore_entry_link_tags('app') }}#}
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('js/ajax-form.js') }}"></script>
+        <script src="{{ asset('js/waypoints.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
+        <script src="{{ asset('js/scrollIt.js') }}"></script>
+        <script src="{{ asset('js/jquery.scrollUp.min.js') }}"></script>
+        <script src="{{ asset('js/wow.min.js') }}"></script>
+        <script src="{{ asset('js/nice-select.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('js/plugins.js') }}"></script>
+        <script src="{{ asset('js/gijgo.min.js') }}"></script>
+
+
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+        <link href='fonts/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='fonts/lovelo/stylesheet.css' rel='stylesheet' type='text/css'>
+
+        <link href='css/owl.carousel.css' rel='stylesheet' type='text/css'>
+        <link href='css/owl.theme.css' rel='stylesheet' type='text/css'>
+        <link href="rs-plugin/css/settings.css" rel="stylesheet" type='text/css'>
+        <link href="css/custom.css" rel="stylesheet" type='text/css'>
+
+
+        <!--contact js-->
+        <script src="{{ asset('js/contact.js') }}"></script>
+        <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.form.js') }}"></script>
+        <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('js/mail-script.js') }}"></script>
+
+
+        <script src="{{ asset('js/main.js') }}"></script>
+        {#{{ encore_entry_script_tags('app') }}#}
+
+        <script src="{{ asset('js/codebeautify.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+        <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid ">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href= {{ path('mescour') }}>
+                                    <img src="{{ asset('img/ka_logo.png') }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+
+                                        <li><a href= {{ path('listCour') }}>Cours</a></li>
+                                        <li><a href={{ path('listformation') }}>Formation</a></li>
+                                        <li><a href={{ path('evenements') }}>Evenement</a></li>
+                                        <li><a href="Reclamation.html">Reclamation</a></li>
+                                        {% block usr %}
+                                            {% if is_granted('ROLE_ETUDIANT') %}
+
+                                                <li class="nav-item" ><a class="nav-link" href="{{ path('dash') }}">{{ app.user.name }}</a>
+                                                </li>
+                                                <li class="nav-item"><a class="nav-link"
+                                                                        href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+
+                                            {% elseif is_granted('ROLE_ENSEIGNANT') %}
+
+                                                <li class="nav-item" ><a class="nav-link"  href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                                                </li>
+                                                <li class="nav-item"><a class="nav-link"
+                                                                        href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                                            {% elseif is_granted('ROLE_ADMIN') %}
+
+                                                <li class="nav-item" ><a class="nav-link"  href="{{ path('user_edit') }}">{{ app.user.name }}</a>
+                                                </li>
+                                                <li class="nav-item"><a class="nav-link"
+                                                                        href="{{ path('security_logout') }}">{{ 'user.logout'|trans }}</a></li>
+                                            {% else %}
+                                                {#<li><a href="{{ path('user_register') }}">{{ 'user.sign-up'|trans }}</a></li>#}
+                                                <li class="nav-item"><a class="nav-link"
+                                                                        href="{{ path('security_login') }}">{{ 'user.login'|trans }}</a></li>
+
+                                            {% endif %}
+                                        {% endblock %}
+
+
+                                    </ul>
+
+                                </nav>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                            <div class="Appointment">
+                                <div class="d-none d-lg-block">
+                                    <a class="boxed-btn3" href="{{ path('cart') }}">Pannier</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section-large-top">
+        <div class="container">
+
+
+
+            <!--Start class Shortcode tabs-->
+            <div class="tz-shortcode-tabs">
+
+                <!--Tabs Header-->
+                <div class="tz-tabs-header">
+                    <h2 class="tz-tabs-title pull-left">Liste des evenements
+
+
+                            <form method="post" action="{{ path('afficheee') }}">
+
+
+                                    <input type="submit" value="ASC">
+
+                                <form method="post" action="{{ path('afficheeee') }}">
+
+
+                                    <input type="submit" value="DSC">
+
+
+
+                    </div>
+
+                </div>
+
+                </div>
+
+
+                <!--End Tabs header-->
+
+                <!--Start Tabs content-->
+                <div class="tab-content">
+
+
+                    <!-- <iframe name="numéro semaine" id="date-du-jour" style="width:105px;height:75px;" src="https://www.mathieuweb.fr/calendrier/numero_semaine_gris.php" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+-->
+
+                    <!--Tab item-->
+                    <div class="tab-pane active" id="baby_seats">
+                        <!--Start product-->
+
+                        <div class="row row-item">
+
+                            {% for i in event %}
+                                <div class="col-md-3 col-sm-6">
+
+                                    <!--Start product item-->
+
+                                    <div class="product-item">
+                                        <div class="product-thubnail">
+                                            <img src="{{ asset('img/'~ i.image) }}" />
+                                            <div class="product-meta">
+
+                                                {% if i.nbrplace==0 %}
+                                                <a class="add-to-cart"> evenement complet <a/>
+                                                    {% else %}
+                                                        <a class="add-to-cart" href="{{ path('participant',{'id':i.id}) }}">participer</a>
+                                                    {% endif %}
+                                                    <span class="quick-view">
+                                                <a href="{{path('Quickview',{'id':i.id})}}">Quick view</a>
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="product-infomation">
+                                            <h4><a {{i.nom}}</a></h4>
+
+                                            <h4> Nombre de place : {{i.nbrplace}} </h4>
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% block imageindex %}
+
+        {% endblock %}
+    </div>
+    <!-- slider_area_end -->
+    {% block calendar %}
+
+    {% endblock %}
+
+
+
+    <footer class="footer">
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="footer_logo">
+                            <a href="#">
+                                <img src="img/ka_logo.png" alt="">
+                            </a>
+                        </div>
+                        <p>
+                            Study@kaisen.com <br>
+                            +216 22 45 96 75 <br>
+                            elghazella
+                        </p>
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="ti-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">
+        <div class="container">
+            <div class="footer_border"></div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <p class="copy_right text-center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/ footer end  -->
+
+<!-- link that opens popup -->
+
+{% endblock %}
+</body>
+</html>
+
+
+    </div>
+    {% block js %}
+        <script type='text/javascript' src="js/jquery.min.js"></script>
+        <script type='text/javascript' src="js/bootstrap.min.js"></script>
+        <script type='text/javascript' src="js/off-canvas.js"></script>
+        <!--jQuery Countdow-->
+        <script type='text/javascript' src="js/jquery.plugin.min.js"></script>
+        <script type='text/javascript' src="js/jquery.countdown.min.js"></script>
+        <!--End Countdow-->
+        <script type='text/javascript' src="js/jquery.parallax-1.1.3.js"></script>
+        <script type='text/javascript' src="js/owl.carousel.js"></script>
+        <script type='text/javascript' src="js/custom.js"></script>
+        <script type='text/javascript' src='rs-plugin/js/jquery.themepunch.tools.min.js'></script>
+        <script type='text/javascript' src='rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
+        <script type='text/javascript' src='rs-plugin/js/custom-rs.js'></script>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    {% endblock %}
+
+

@@ -1,0 +1,25 @@
+{% extends 'dash.html.twig' %}
+
+{% block title %}Edit Questions{% endblock %}
+
+{% block body %}
+{{ include('header.html.twig') }}
+<div class="product-status mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+    <h1>Edit Questions</h1>
+
+    {{ include('questions/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('questions_index') }}">back to list</a>
+
+    {{ include('questions/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {{ include('footer.html.twig') }}
+{% endblock %}

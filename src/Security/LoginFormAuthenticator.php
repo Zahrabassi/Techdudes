@@ -120,6 +120,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     /**
      * @return string
+     *
      */
     protected function getDefaultSuccessRedirectUrl()
     {

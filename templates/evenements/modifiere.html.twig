@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- modernizr JS
+        ============================================ -->
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        <!-- favicon
+============================================ -->
+        <!-- modernizr JS
+            ============================================ -->
+
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
+        <!-- Google Fonts
+            ============================================ -->
+        <link href="{{ asset('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900') }}" rel="stylesheet">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <!-- owl.carousel CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.transitions.css') }}">
+        <!-- animate CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        <!-- normalize CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+        <!-- meanmenu icon CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/meanmenu.min.css') }}">
+        <!-- main CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <!-- educate icon CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/educate-custon-icon.css') }}">
+        <!-- morrisjs CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/morrisjs/morris.css') }}">
+        <!-- mCustomScrollbar CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
+        <!-- metisMenu CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/metisMenu/metisMenu.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/metisMenu/metisMenu-vertical.css') }}">
+        <!-- calendar CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/calendar/fullcalendar.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/calendar/fullcalendar.print.min.css') }}">
+        <!-- style CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('style.css') }}">
+        <!-- responsive CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        <!-- jquery
+   ============================================ -->
+        <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <!-- bootstrap JS
+            ============================================ -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- wow JS
+            ============================================ -->
+        <script src="{{ asset('js/wow.min.js') }}"></script>
+        <!-- price-slider JS
+            ============================================ -->
+        <script src="{{ asset('js/jquery-price-slider.js') }}"></script>
+        <!-- meanmenu JS
+            ============================================ -->
+        <script src="{{ asset('js/jquery.meanmenu.js') }}"></script>
+        <!-- owl.carousel JS
+            ============================================ -->
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <!-- sticky JS
+            ============================================ -->
+        <script src="{{ asset('js/jquery.sticky.js') }}"></script>
+        <!-- scrollUp JS
+            ============================================ -->
+        <script src="{{ asset('js/jquery.scrollUp.min.js') }}"></script>
+        <!-- counterup JS
+            ============================================ -->
+        <script src="{{ asset('js/counterup/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('js/counterup/waypoints.min.js') }}"></script>
+        <script src="{{ asset('js/counterup/counterup-active.js') }}"></script>
+        <!-- mCustomScrollbar JS
+            ============================================ -->
+        <script src="{{ asset('js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('js/scrollbar/mCustomScrollbar-active.js') }}"></script>
+        <!-- metisMenu JS
+            ============================================ -->
+        <script src="{{ asset('js/metisMenu/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('js/metisMenu/metisMenu-active.js') }}"></script>
+        <!-- morrisjs JS
+            ============================================ -->
+        <script src="{{ asset('js/morrisjs/raphael-min.js') }}"></script>
+        <script src="{{ asset('js/morrisjs/morris.js') }}"></script>
+        <script src="{{ asset('js/morrisjs/morris-active.js') }}"></script>
+        <!-- morrisjs JS
+            ============================================ -->
+        <script src="{{ asset('js/sparkline/jquery.sparkline.min.js') }}"></script>
+        <script src="{{ asset('js/sparkline/jquery.charts-sparkline.js') }}"></script>
+        <script src="{{ asset('js/sparkline/sparkline-active.js') }}"></script>
+        <!-- calendar JS
+            ============================================ -->
+        <script src="{{ asset('js/calendar/moment.min.js') }}"></script>
+        <script src="{{ asset('js/calendar/fullcalendar.min.js') }}"></script>
+        <script src="{{ asset('js/calendar/fullcalendar-active.js') }}"></script>
+        <!-- plugins JS
+            ============================================ -->
+        <script src="{{ asset('js/plugins.js') }}"></script>
+        <!-- main JS
+            ============================================ -->
+        <script src="{{ asset('js/main.js') }}"></script>
+        <!-- tawk chat JS
+            ============================================ -->
+        <script src="{{ asset('js/tawk-chat.js') }}"></script>
+
+    {% endblock %}
+</head>
+{% block body %}
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Start Left menu area -->
+<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+        <div class="sidebar-header">
+            <a href="index.html"><img class="main-logo" src="img/ka_logo.png" alt="" /></a>
+            <strong><a href="index.html"><img src="img/logo/logosn.png" alt="" /></a></strong>
+        </div>
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    <li class="active">
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a title="All Users" href="{{ path('user_liste') }}"><span class="mini-sub-pro">All Users</span></a></li>
+
+                        </ul>
+                        <a class="has-arrow" href="{{ path('crud_cour_index') }}"aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">GESTION DES COURES</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+
+                            <a href="{{ path('crud_cour_new') }}">AJOUT COUR</a>
+                            <a href="{{ path('newpdf') }}">AJOUT DEVOIR</a>
+
+                            <li><a href="{{ path('meet') }}"><span class="mini-sub-pro">MEET</span></a></li>
+                        </ul>
+
+                        <a class="has-arrow" href="{{ path('form_crud_index') }}"aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">GESTION DES FORMATIONS</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li> <a href="{{ path('quiz_index') }}"><span class="mini-sub-pro">GESTION DES QUIZ</span></a></li>
+                            <a href="{{ path('questions_index') }}"><span class="mini-sub-pro">GESTION DES QUESTIONS</span></a>
+                            <a href="{{ path('choix_index') }}"><span class="mini-sub-pro">GESTION DES CHOIX</span></a>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a title="Landing Page"  aria-expanded="false">
+                            <span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a  href="{{ path('affichee') }}">liste evenement</a></li>
+                            <li><a class="" href="{{ path('affichepart') }}">liste participant </a></li>
+                        </ul>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a href="{{ path('reclamations') }}"><span class="mini-sub-pro">Reclamation</span></a></li>
+                            <li><a href="{{ path('chat') }}"><span class="mini-sub-pro">Chat</span></a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>
+<!-- End Left menu area -->
+<!-- Start Welcome area -->
+<div class="all-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+
+        </div>
+    </div>
+
+    <a id="scrollUp" href="#top" style="display: none; position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
+
+
+    </body>
+</html>
+
+
+
+
+
+<section id="main-content">
+    <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                </ol>
+            </div>
+        </div>
+
+
+
+        <div class="panel-body">
+            <div class="padd">
+
+                <div class="form quick-post">
+                    <div class="col-lg-5">
+                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        <div align="center" class="form-group"> {{ form_row(form.nom ,{'attr':{'class': 'form-control'}} ) }}</div>
+                        <div align="center" class="form-group"> {{ form_row(form.nbr_place,{'attr':{'class': 'form-control'}}) }} </div>
+                        <div align="center" class="form-group"> {{ form_row(form.date_allee  ) }}</div>
+                        <div align="center" class="form-group"> {{ form_row(form.date_retour)  }}</div>
+                        <div align="center" class="form-group"> {{ form_row(form.description ,{'attr':{'class': 'form-control'}} ) }}</div>
+                        <div align="center" class="form-group"> {{ form_row(form.image)  }}</div>
+                        <button align="center" type="submit" class="btn btn-primary" >Ajouter</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</section>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

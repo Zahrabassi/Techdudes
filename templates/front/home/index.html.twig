@@ -1,0 +1,26 @@
+{% extends 'front/layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-3 mb-4">Formation</h1>
+        <div class="row">
+            {% for formation in formations %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ asset('formations/'~  formation.img) | default('https://via.placeholder.com/200x150') }}"
+                             alt="{{ formation.intitule }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ formation.intitule }}</h5>
+                            <p class="card-text">{{ formation.description }}</p>
+                            <div class="d-flex justify-content-between align-item-center">
+                                <a href="{{ path('formation.detail', {id: formation.id}) }}" class="btn btn-dark">View
+                                    details</a>
+                                <span class="h5 mt-auto">{{ formation.prix }} TND</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

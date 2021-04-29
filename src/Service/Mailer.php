@@ -89,7 +89,7 @@ class Mailer
             ->setTo($toEmail);
 
         if (!empty($htmlBody)) {
-            $message->setBody($htmlBody, 'text/html')->addPart($textBody, 'text/plain');
+            $message->setBody($htmlBody,  'text/html')->addPart($textBody, 'text/plain');
         } else {
             $message->setBody($textBody);
         }
